@@ -1,0 +1,46 @@
+import { Link } from 'react-router-dom'
+import { FaUserDoctor, FaGraduationCap, FaLocationDot, FaCalendarCheck } from 'react-icons/fa6'
+import logoImg from '../cureo/logo.jpg'
+import coverImg from '../cureo/cover.jpg'
+
+export default function AboutPage() {
+  return (
+    <div className="section" style={{ marginTop: '2.5rem' }}>
+      <div className="section-header">
+        <span className="section-tag">About Cureo Clinic</span>
+        <h2 className="section-title">Dr. Niharika Bezboruah</h2>
+        <p className="section-desc">Bachelor of Homoeopathic Medicine and Surgery (BHMS)</p>
+      </div>
+
+      <div className="hero-grid" style={{ marginBottom: '3rem' }}>
+        <div className="hero-text-content">
+          <div className="hero-badge">
+            <FaUserDoctor style={{ color: 'var(--accent)' }} />
+            <span>Consultant Homeopath</span>
+          </div>
+          <h2 style={{ fontSize: '2rem', color: 'var(--primary)', marginBottom: '1rem' }}>
+            Personalized Homeopathic Healthcare
+          </h2>
+          <p className="hero-subtitle">
+            Dr. Niharika Bezboruah is a qualified Homeopathic physician practicing in Dibrugarh, Assam. She specializes in individualized case-taking and constitutional treatment for chronic and recurring ailments.
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', margin: '1.5rem 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <FaGraduationCap size={20} style={{ color: 'var(--primary)' }} />
+              <span><strong>Degree:</strong> Bachelor of Homoeopathic Medicine and Surgery (BHMS)</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <FaLocationDot size={20} style={{ color: 'var(--primary)' }} />
+              <span><strong>Clinic Location:</strong> Dibrugarh, Assam, India - 786001</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-image-wrapper">
+          <img src={coverImg} alt="Dr. Niharika Bezboruah Clinic Cover" className="hero-cover-img" />
+        </div>
+      </div>
+    </div>
+  )
+}
