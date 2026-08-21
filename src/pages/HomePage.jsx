@@ -106,11 +106,6 @@ export default function HomePage() {
                   At Cureo Clinic, we are deeply committed to empowering every patient with individualized, constitutional homeopathic care that restores natural vitality and long-term health. Our mission is to deliver compassionate, root-cause healing tailored to your unique wellness journey...
                 </p>
               </div>
-
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="doctor-view-message">
-                <span>View Message</span>
-                <FaArrowRight size={14} />
-              </a>
             </div>
           </div>
         </div>
