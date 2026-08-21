@@ -121,7 +121,7 @@ export default function HomePage() {
         <div className="booking-cta-container">
           <div className="booking-cta-content">
             <div className="booking-cta-text">
-              <span className="booking-tag">PRIOR APPOINTMENT MANDATORY</span>
+              <span className="booking-tag">Prior Appointment Mandatory</span>
               <h2 className="booking-title">Ready for Personalised Homeopathic Healing?</h2>
               <p className="booking-desc">
                 Consult directly with Dr. Niharika Bezboruah (BHMS). We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns — available in-clinic at Dibrugarh and via online tele-consultation worldwide.

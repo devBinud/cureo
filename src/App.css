@@ -449,17 +449,18 @@ body.drawer-open .floating-widgets-stack {
   .hero-mobile-image-banner {
     display: block !important;
     width: 100%;
-    height: 280px;
+    height: 360px;
     position: relative;
     overflow: hidden;
     background-color: #f1f5f9;
+    padding-top: 1.25rem;
   }
 
   .hero-mobile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center top;
     display: block;
   }
 
@@ -1805,9 +1806,20 @@ body.drawer-open .floating-widgets-stack {
   margin: 0;
 }
 
+.footer-bottom-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
 .footer-sep {
   opacity: 0.5;
-  margin: 0 0.4rem;
+}
+
+.footer-dev-credit {
+  color: #bce9f5;
 }
 
 .dev-credit-link {
@@ -1880,6 +1892,15 @@ body.drawer-open .floating-widgets-stack {
 
   .footer-bottom {
     font-size: 0.78rem !important;
+  }
+
+  .footer-bottom-text {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .footer-sep {
+    display: none;
   }
 
   /* Mobile Fixed 2-Button Sticky Bottom Action Bar (HealthCity Style) */

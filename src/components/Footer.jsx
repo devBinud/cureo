@@ -41,8 +41,12 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>
-          © {new Date().getFullYear()} Cureo, All Rights Reserved <span className="footer-sep">|</span> Developed by <a href="https://www.binudsoftwaresolutions.in/" target="_blank" rel="noopener noreferrer" className="dev-credit-link">Binud Software Solutions</a>
+        <p className="footer-bottom-text">
+          <span>© {new Date().getFullYear()} Cureo, All Rights Reserved</span>
+          <span className="footer-sep">|</span>
+          <span className="footer-dev-credit">
+            Developed by <a href="https://www.binudsoftwaresolutions.in/" target="_blank" rel="noopener noreferrer" className="dev-credit-link">Binud Software Solutions</a>
+          </span>
         </p>
       </div>
     </footer>
