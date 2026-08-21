@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
-import { FaPhone, FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaEnvelope, FaBars, FaXmark } from 'react-icons/fa6'
+import { FaPhone, FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaEnvelope, FaXmark } from 'react-icons/fa6'
+import { FiMenu } from 'react-icons/fi'
 import logoImg from '../cureo/logo.jpg'
+import hoursIcon from '../assets/24_hours.png'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,10 +24,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Lock body scroll and add class when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add('drawer-open');
+    } else {
+      document.body.classList.remove('drawer-open');
+    }
+    return () => {
+      document.body.classList.remove('drawer-open');
+    };
+  }, [mobileMenuOpen]);
+
+  // Close mobile drawer whenever location/route changes
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [location]);
+  }, [location.pathname]);
 
   const whatsappNumber = "917002974378";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Dr. Niharika Bezboruah, I would like to book a homeopathy consultation.")}`;
@@ -37,7 +51,7 @@ export default function Navbar() {
         <div className="top-bar-container">
           <div className="top-bar-left">
             <a href="tel:+917002974378" className="phone-fullheight-link">
-              <FaPhone size={13} />
+              <img src={hoursIcon} alt="24 Hours Support" className="topbar-24h-icon" />
               <span>+91 70029 74378</span>
             </a>
             <span className="topbar-tagline desktop-only-tagline">Dr. Niharika Bezboruah (BHMS)</span>
@@ -57,9 +71,6 @@ export default function Navbar() {
             </a>
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="YouTube">
               <FaYoutube size={15} />
-            </a>
-            <a href="mailto:contact@cureo.in" className="topbar-social-item" title="Email Us">
-              <FaEnvelope size={14} />
             </a>
           </div>
         </div>
@@ -109,54 +120,78 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Hamburger Toggle Button */}
-          <button 
-            className="mobile-hamburger-btn" 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
+          <button
+            className="mobile-hamburger-btn"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open navigation menu"
           >
-            {mobileMenuOpen ? <FaXmark size={24} /> : <FaBars size={22} />}
+            <FiMenu size={26} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Right Side Drawer Backdrop Overlay */}
+      <div
+        className={`mobile-drawer-overlay ${mobileMenuOpen ? 'active' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile Off-Canvas Right Navigation Drawer */}
+      <aside className={`mobile-right-drawer ${mobileMenuOpen ? 'active' : ''}`}>
+        <div className="drawer-header">
+          <div className="drawer-brand">
+            <img src={logoImg} alt="Cureo Logo" className="drawer-logo" />
+          </div>
+          <button
+            className="drawer-close-btn"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close navigation menu"
+          >
+            <FaXmark size={22} />
           </button>
         </div>
 
-        {/* Mobile Dropdown Drawer Menu */}
-        {mobileMenuOpen && (
-          <div className="mobile-drawer-menu">
-            <ul className="mobile-nav-links">
-              <li>
-                <NavLink to="/" className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")} end>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/about" className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}>
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/specialties" className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}>
-                  Specialties
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/philosophy" className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}>
-                  FAQ
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/gallery" className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}>
-                  Gallery
-                </NavLink>
-              </li>
-            </ul>
+        <div className="drawer-body">
+          <ul className="drawer-nav-links">
+            <li>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)} end>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
+                About Dr. Bezboruah
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/specialties" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
+                Clinical Specialties
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/philosophy" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
+                FAQ & Philosophy
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/gallery" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
+                Clinic Gallery
+              </NavLink>
+            </li>
+          </ul>
+        </div>
 
-            <div className="mobile-drawer-action">
-              <Link to="/appointment" className="btn-hero-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                <span>Book Appointment Now</span>
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
+        <div className="drawer-footer">
+          <Link to="/appointment" className="btn-hero-primary drawer-cta-btn" onClick={() => setMobileMenuOpen(false)}>
+            <span>Book Appointment Now</span>
+          </Link>
+          <a href="tel:+917002974378" className="drawer-phone-btn">
+            <FaPhone size={13} />
+            <span>Call: +91 70029 74378</span>
+          </a>
+        </div>
+      </aside>
     </header>
   )
 }

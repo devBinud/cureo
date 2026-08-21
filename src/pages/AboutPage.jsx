@@ -7,17 +7,11 @@ export default function AboutPage() {
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
       <div className="section-header">
-        <span className="section-tag">About Cureo Clinic</span>
-        <h2 className="section-title">Dr. Niharika Bezboruah</h2>
-        <p className="section-desc">Bachelor of Homoeopathic Medicine and Surgery (BHMS)</p>
+        <h2 className="section-title">About Cureo</h2>
       </div>
 
       <div className="hero-grid" style={{ marginBottom: '3rem' }}>
         <div className="hero-text-content">
-          <div className="hero-badge">
-            <FaUserDoctor style={{ color: 'var(--accent)' }} />
-            <span>Consultant Homeopath</span>
-          </div>
           <h2 style={{ fontSize: '2rem', color: 'var(--primary)', marginBottom: '1rem' }}>
             Personalized Homeopathic Healthcare
           </h2>

@@ -46,27 +46,11 @@ _Sent from Cureo Website Appointment Portal_`;
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
       <div className="section-header">
-        <span className="section-tag">ONLINE BOOKING PORTAL</span>
+        <span className="section-tag">Book an Appointment</span>
         <h2 className="section-title">Schedule Your Consultation</h2>
-        <p className="section-desc">
-          Fill in your details below to request a prior appointment slot with <strong>Dr. Niharika Bezboruah (BHMS)</strong>.
-        </p>
       </div>
 
       <div className="appointment-container">
-        {/* Important Consultation Policy Alert Card */}
-        <div className="policy-card">
-          <div className="policy-icon">
-            <FaClipboardList />
-          </div>
-          <div className="policy-text">
-            <h4>Important Consultation Policy</h4>
-            <p>
-              For Skin, Piles & Digestive concerns, <strong>prior booking is mandatory</strong>. Direct phone calls or unscheduled walk-in consultations will not be attended.
-            </p>
-          </div>
-        </div>
-
         <form onSubmit={handleSubmit}>
           <h3 className="form-section-header">
             1. Patient Personal Information
@@ -221,7 +205,6 @@ _Sent from Cureo Website Appointment Portal_`;
           </div>
 
           <button type="submit" className="btn-hero-primary btn-submit-appointment">
-            <FaCalendarCheck size={18} />
             <span>Confirm & Send Booking Request</span>
           </button>
         </form>

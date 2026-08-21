@@ -5,33 +5,51 @@
      ========================================== */
 
   /* 🟢 Primary & Accent Colors */
-  --primary: #093819;            /* Main brand color - Deep Forest Green */
-  --primary-dark: #062B13;       /* Primary hover / darker UI - Dark Forest Green */
-  --navy-blue: #016b8b;          /* Topbar & Accent Blue */
-  --navy-dark: #015069;          /* Darker Accent Blue */
-  
+  --primary: #093819;
+  /* Main brand color - Deep Forest Green */
+  --primary-dark: #062B13;
+  /* Primary hover / darker UI - Dark Forest Green */
+  --navy-blue: #0b2c6b;
+  /* Topbar & Accent Blue */
+  --navy-dark: #071d47;
+  /* Darker Accent Blue */
+
   /* 🟢 Secondary & Accent Colors */
-  --secondary: #1E5725;          /* Secondary brand elements - Natural Green */
-  --accent: #41763E;             /* Highlights & active elements - Fresh Leaf Green */
-  --accent-light: #C1D8B9;       /* Soft backgrounds - Soft Sage */
-  --accent-gold: #675B3E;        /* Premium / decorative details - Warm Olive Gold */
-  --accent-beige: #BDB9A2;       /* Subtle decorative areas - Soft Beige */
+  --secondary: #1E5725;
+  /* Secondary brand elements - Natural Green */
+  --accent: #41763E;
+  /* Highlights & active elements - Fresh Leaf Green */
+  --accent-light: #C1D8B9;
+  /* Soft backgrounds - Soft Sage */
+  --accent-gold: #675B3E;
+  /* Premium / decorative details - Warm Olive Gold */
+  --accent-beige: #BDB9A2;
+  /* Subtle decorative areas - Soft Beige */
 
   /* ⚪ Background Colors */
-  --bg-main: #F6F4F5;            /* Main website background - Warm Off-White */
-  --bg-card: #FFFFFF;            /* Cards / sections - Pure White */
+  --bg-main: #F6F4F5;
+  /* Main website background - Warm Off-White */
+  --bg-card: #FFFFFF;
+  /* Cards / sections - Pure White */
   --bg-glass: rgba(255, 255, 255, 0.85);
 
   /* ⚫ Text Colors */
-  --text-heading: #0f172a;       /* Main headings - Dark Slate (rgb(15, 23, 42)) */
-  --text-body: #49566a;          /* Description / Body text */
-  --text-secondary: #49566a;     /* Secondary text */
-  --text-muted: #8A918B;         /* Placeholder / disabled text - Light Gray */
-  --text-brand: #1E5725;         /* Green text / links - Brand Green */
+  --text-heading: #0f172a;
+  /* Main headings - Dark Slate (rgb(15, 23, 42)) */
+  --text-body: #49566a;
+  /* Description / Body text */
+  --text-secondary: #49566a;
+  /* Secondary text */
+  --text-muted: #8A918B;
+  /* Placeholder / disabled text - Light Gray */
+  --text-brand: #1E5725;
+  /* Green text / links - Brand Green */
 
   /* 🟤 Borders & Lines */
-  --border-gold: #B0A984;        /* Gold decorative borders - Olive Border */
-  --border-ui: #DDE1DD;          /* Normal UI borders - Soft Gray */
+  --border-gold: #B0A984;
+  /* Gold decorative borders - Olive Border */
+  --border-ui: #DDE1DD;
+  /* Normal UI borders - Soft Gray */
 
   /* ==========================================
      TYPOGRAPHY & UTILITIES
@@ -53,10 +71,19 @@
 }
 
 /* Base Reset & Global Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 html {
@@ -73,7 +100,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-optical-sizing: auto;
   color: var(--text-heading);
@@ -99,21 +131,65 @@ img {
 }
 
 /* Global Reusable Utility Classes */
-.bg-primary { background-color: var(--primary) !important; color: white !important; }
-.bg-primary-dark { background-color: var(--primary-dark) !important; color: white !important; }
-.bg-secondary { background-color: var(--secondary) !important; color: white !important; }
-.bg-accent-light { background-color: var(--accent-light) !important; }
-.bg-accent-beige { background-color: var(--accent-beige) !important; }
-.bg-card { background-color: var(--bg-card) !important; }
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
 
-.text-primary { color: var(--primary) !important; }
-.text-brand { color: var(--text-brand) !important; }
-.text-heading { color: var(--text-heading) !important; }
-.text-body { color: var(--text-body) !important; }
-.text-secondary { color: var(--text-secondary) !important; }
-.text-muted { color: var(--text-muted) !important; }
-.text-gold { color: var(--accent-gold) !important; }
+.bg-primary-dark {
+  background-color: var(--primary-dark) !important;
+  color: white !important;
+}
 
-.border-gold { border: 1px solid var(--border-gold) !important; }
-.border-ui { border: 1px solid var(--border-ui) !important; }
+.bg-secondary {
+  background-color: var(--secondary) !important;
+  color: white !important;
+}
 
+.bg-accent-light {
+  background-color: var(--accent-light) !important;
+}
+
+.bg-accent-beige {
+  background-color: var(--accent-beige) !important;
+}
+
+.bg-card {
+  background-color: var(--bg-card) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-brand {
+  color: var(--text-brand) !important;
+}
+
+.text-heading {
+  color: var(--text-heading) !important;
+}
+
+.text-body {
+  color: var(--text-body) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-gold {
+  color: var(--accent-gold) !important;
+}
+
+.border-gold {
+  border: 1px solid var(--border-gold) !important;
+}
+
+.border-ui {
+  border: 1px solid var(--border-ui) !important;
+}

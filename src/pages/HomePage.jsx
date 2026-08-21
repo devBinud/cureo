@@ -3,6 +3,7 @@ import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaPhone, FaWhatsapp, FaSt
 import { FcGoogle } from 'react-icons/fc'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
 import heroImg from '../assets/hero-image.png'
+import heroImgMobile from '../assets/hero-image-mobile.png'
 import doctorImg from '../assets/doctor.jpeg'
 import gallery1 from '../cureo/gallery/1.jpg'
 import gallery2 from '../cureo/gallery/2.jpg'
@@ -16,24 +17,30 @@ export default function HomePage() {
     <>
       {/* Full-Width Hero Section */}
       <section className="hero-full-section">
+        {/* Mobile Top Image Banner (visible on mobile screens) */}
+        <div className="hero-mobile-image-banner">
+          <img src={heroImgMobile} alt="Dr. Niharika Bezboruah - Cureo Clinic" className="hero-mobile-img" />
+          <div className="hero-mobile-img-overlay"></div>
+        </div>
+
         <div className="hero-full-bg-container" style={{ backgroundImage: `url(${heroImg})` }}>
           <div className="hero-gradient-overlay"></div>
 
           <div className="hero-content-wrapper">
             <div className="hero-text-block">
               <h1 className="hero-main-title">
-                <span className="hero-title-blue">Compassionate Care.</span><br />
-                <span className="hero-title-green">Every Patient Matters.</span>
+                <span className="hero-title-blue">Personalized Healing</span><br />
+                <span className="hero-title-green">Your Health Matters</span>
               </h1>
 
               <p className="hero-banner-desc">
-                Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing — all under one roof for you and your family.
+                Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - all under one roof for you and your family.
               </p>
 
               <div className="hero-banner-buttons">
                 <Link to="/appointment" className="btn-hero-primary">
                   <FaCalendarCheck size={18} />
-                  <span>Book an Appointment</span>
+                  <span>Book An Appointment</span>
                 </Link>
               </div>
             </div>
@@ -44,19 +51,22 @@ export default function HomePage() {
       {/* 3-Column Specialty Action Bar */}
       <section className="quick-action-bar-wrapper">
         <div className="quick-action-bar-container">
+          <div className="quick-action-top-banner">
+            <span>Nurturing you from within</span>
+          </div>
           <Link to="/specialties" className="action-bar-item">
-            <div className="action-bar-icon"><FaStethoscope size={26} /></div>
-            <span className="action-bar-title">PILES & ANORECTAL CONCERNS</span>
+            <div className="action-bar-icon"><FaStethoscope size={24} /></div>
+            <span className="action-bar-title">Piles & Anorectal Concerns</span>
           </Link>
 
           <Link to="/specialties" className="action-bar-item">
-            <div className="action-bar-icon"><GiStomach size={28} /></div>
-            <span className="action-bar-title">DIGESTIVE ISSUES</span>
+            <div className="action-bar-icon"><GiStomach size={25} /></div>
+            <span className="action-bar-title">Digestive Issues</span>
           </Link>
 
           <Link to="/specialties" className="action-bar-item">
-            <div className="action-bar-icon"><GiSparkles size={26} /></div>
-            <span className="action-bar-title">SKIN CONCERNS</span>
+            <div className="action-bar-icon"><GiSparkles size={24} /></div>
+            <span className="action-bar-title">Skin Concerns</span>
           </Link>
         </div>
       </section>
@@ -86,7 +96,7 @@ export default function HomePage() {
                 <img src={doctorImg} alt="Dr. Niharika Bezboruah" className="doctor-avatar-img" />
                 <div className="doctor-header-info">
                   <h3 className="doctor-name">Dr. Niharika Bezboruah</h3>
-                  <div className="doctor-designation">FOUNDER & CHIEF HOMEOPATHIC PHYSICIAN (BHMS)</div>
+                  <div className="doctor-designation">Founder & Chief Homeopathic Physician (BHMS)</div>
                 </div>
               </div>
 
@@ -151,7 +161,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="booking-phone-note">
-                  <FaPhone size={13} style={{ color: '#016b8b' }} />
+                  <FaPhone size={13} style={{ color: '#0b2c6b' }} />
                   <span>Call Us: <strong>+91 70029 74378</strong></span>
                 </div>
               </div>

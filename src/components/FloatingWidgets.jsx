@@ -44,7 +44,7 @@ export default function FloatingWidgets() {
           title={`Scroll to top (${scrollProgress}%)`}
           aria-label="Scroll to top"
         >
-          <svg className="progress-ring" width="50" height="50">
+          <svg className="progress-ring" width="100%" height="100%" viewBox="0 0 50 50">
             <circle
               className="progress-ring__circle-bg"
               stroke="#DDE1DD"
@@ -67,7 +67,7 @@ export default function FloatingWidgets() {
             />
           </svg>
           <div className="scroll-percentage-text">
-            <span className="percent-val">{scrollProgress}%</span>
+            <span className={`percent-val ${scrollProgress >= 100 ? 'hundred-percent' : ''}`}>{scrollProgress}%</span>
             <FaArrowUp className="arrow-icon" size={14} />
           </div>
         </button>
@@ -80,7 +80,8 @@ export default function FloatingWidgets() {
         title="Call Clinic (+91 70029 74378)"
         aria-label="Call Clinic"
       >
-        <FaPhone size={20} />
+        <FaPhone size={18} />
+        <span className="btn-mobile-label">Call Clinic</span>
         <span className="tooltip-text">Call Clinic</span>
       </a>
 
@@ -93,7 +94,8 @@ export default function FloatingWidgets() {
         title="WhatsApp Booking"
         aria-label="WhatsApp Booking"
       >
-        <FaWhatsapp size={26} />
+        <FaWhatsapp size={22} />
+        <span className="btn-mobile-label">WhatsApp</span>
         <span className="tooltip-text">Chat on WhatsApp</span>
       </a>
     </div>
