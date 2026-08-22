@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FaWhatsapp, FaCalendarCheck, FaClipboardList, FaUser, FaPhone, FaLocationDot, FaStethoscope, FaClock } from 'react-icons/fa6'
+import { addAppointment } from '../admin/adminStore'
 
 export default function AppointmentPage() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,14 @@ export default function AppointmentPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Save to local admin store
+    try {
+      addAppointment(formData);
+    } catch (err) {
+      console.error("Failed to save appointment to store", err);
+    }
+
     const whatsappNumber = "917002974378";
     const textMessage = `*NEW ONLINE APPOINTMENT REQUEST - CUREO*
 ---------------------------------------

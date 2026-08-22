@@ -10,6 +10,8 @@ import PhilosophyPage from './pages/PhilosophyPage'
 import AppointmentPage from './pages/AppointmentPage'
 import GalleryPage from './pages/GalleryPage'
 import ContactPage from './pages/ContactPage'
+import AdminDashboard from './admin/AdminDashboard'
+import AdminLogin from './admin/AdminLogin'
 import './App.css'
 
 // Scroll to top helper on route change
@@ -22,6 +24,21 @@ function ScrollToTop() {
 }
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  if (isAdminRoute) {
+    return (
+      <>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+        </Routes>
+      </>
+    );
+  }
+
   return (
     <div className="cureo-container">
       <ScrollToTop />
