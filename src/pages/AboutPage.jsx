@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaUserDoctor, FaGraduationCap, FaLocationDot, FaCalendarCheck } from 'react-icons/fa6'
+import { FaUserDoctor, FaGraduationCap, FaLocationDot, FaCalendarCheck, FaGlobe } from 'react-icons/fa6'
 import logoImg from '../cureo/logo.jpg'
 import coverImg from '../cureo/cover.jpg'
 
@@ -27,6 +27,10 @@ export default function AboutPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <FaLocationDot size={20} style={{ color: 'var(--primary)' }} />
               <span><strong>Clinic Location:</strong> Dibrugarh, Assam, India - 786001</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <FaGlobe size={20} style={{ color: 'var(--primary)' }} />
+              <span><strong>Consultation Modes:</strong> In-Clinic (Dibrugarh) & Worldwide Tele-Consultation</span>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaPhone, FaWhatsapp, FaStar } from 'react-icons/fa6'
+import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaLocationDot, FaRoute, FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
 import heroImg from '../assets/hero-image.png'
@@ -12,6 +12,7 @@ import gallery3 from '../cureo/gallery/3.jpg'
 export default function HomePage() {
   const whatsappNumber = "917002974378";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Dr. Niharika Bezboruah, I would like to book a homeopathy consultation.")}`;
+  const googleMapsUrl = "https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z";
 
   return (
     <>
@@ -34,7 +35,7 @@ export default function HomePage() {
               </h1>
 
               <p className="hero-banner-desc">
-                Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - all under one roof for you and your family.
+                Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - available in-clinic and worldwide online.
               </p>
 
               <div className="hero-banner-buttons">
@@ -80,8 +81,15 @@ export default function HomePage() {
               <span className="about-tag">ABOUT US</span>
               <h2 className="about-title">Trusted Care.<br />World-Class Expertise.</h2>
               <p className="about-desc">
-                At Cureo Homeopathy Clinic, we are committed to providing gentle, high-quality, and personalized homeopathic healthcare. With expert consultation led by Dr. Niharika Bezboruah (BHMS) and individualized constitutional care, we ensure the best long-term wellness for every patient.
+                At Cureo Homeopathy Clinic, we are committed to providing gentle, high-quality, and personalized homeopathic healthcare. With expert consultation led by Dr. Niharika Bezboruah (BHMS) and individualized constitutional care, we ensure the best long-term wellness for every patient globally and locally.
               </p>
+
+              <div style={{ margin: '1rem 0 1.5rem', padding: '0.75rem 1rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FaGlobe size={18} style={{ color: '#d97706', flexShrink: 0 }} />
+                <span>
+                  Online consultations are available for convenient, personalized guidance from the comfort of your home. Please note that medicine and remedy kits are available only through our in-person service and <strong>cannot be delivered online</strong>.
+                </span>
+              </div>
 
               <div>
                 <Link to="/about" className="btn-hero-primary">
@@ -125,7 +133,7 @@ export default function HomePage() {
               <div className="booking-features-list">
                 <div className="booking-feature-item">
                   <span className="feature-check">✓</span>
-                  <span>In-Clinic & Online Tele-Consultations</span>
+                  <span>In-Clinic & Global Online Tele-Consultations</span>
                 </div>
                 <div className="booking-feature-item">
                   <span className="feature-check">✓</span>
@@ -133,8 +141,15 @@ export default function HomePage() {
                 </div>
                 <div className="booking-feature-item">
                   <span className="feature-check">✓</span>
-                  <span>Direct WhatsApp Booking & Support</span>
+                  <span>Direct WhatsApp Booking & Prescriptions</span>
                 </div>
+              </div>
+
+              <div style={{ marginTop: '1.25rem', padding: '0.75rem 1rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FaGlobe size={18} style={{ color: '#d97706', flexShrink: 0 }} />
+                <span>
+                  Online consultations are available for convenient, personalized guidance from the comfort of your home. Please note that medicine and remedy kits are available only through our in-person service and <strong>cannot be delivered online</strong>.
+                </span>
               </div>
             </div>
 
@@ -286,6 +301,39 @@ export default function HomePage() {
           </div>
           <div className="gallery-item">
             <img src={gallery3} alt="Cureo Clinic Showcase 3" className="gallery-img" />
+          </div>
+        </div>
+      </section>
+
+      {/* Embedded Google Maps Section */}
+      <section className="section" style={{ paddingTop: '1rem', marginBottom: '3rem' }}>
+        <div className="section-header">
+          <span className="section-tag">Find Us</span>
+          <h2 className="section-title">Clinic Location</h2>
+          <p className="section-desc">Visit Cureo Personalised Homeopathic Care in Dibrugarh, Assam.</p>
+        </div>
+
+        <div className="clinic-map-section">
+          <div className="clinic-map-header">
+            <div className="clinic-map-title-box">
+              <h3><FaLocationDot style={{ color: '#86efac' }} /> Cureo Personalised Homeopathic Care</h3>
+              <p>Lab collection centre, near Dr Lal path, opposite Honda dealer, Naliapool, Dibrugarh, Assam 786001</p>
+            </div>
+            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-directions-map">
+              <FaRoute /> Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
+            </a>
+          </div>
+          <div className="clinic-map-frame-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.528511227843!2d94.9237945!3d27.4839343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3740992dc75e4b9f%3A0x86f74470d0b8ca74!2sCureo%20Personalised%20Homeopathic%20Care!5e0!3m2!1sen!2sin!4v1787557924980!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Cureo Personalised Homeopathic Care Location Map"
+            ></iframe>
           </div>
         </div>
       </section>

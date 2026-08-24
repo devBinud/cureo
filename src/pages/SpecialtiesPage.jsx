@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
-import { FaStethoscope, FaCalendarCheck } from 'react-icons/fa6'
+import { FaStethoscope, FaCalendarCheck, FaGlobe } from 'react-icons/fa6'
 
 export default function SpecialtiesPage() {
   return (
@@ -9,6 +9,13 @@ export default function SpecialtiesPage() {
         <span className="section-tag">Clinical Focus</span>
         <h2 className="section-title">Specialized Homeopathic Care</h2>
         <p className="section-desc">Targeted, gentle, and constitutional care for chronic recurring concerns.</p>
+
+        <div style={{ margin: '1.25rem auto 0', maxWidth: '780px', padding: '0.75rem 1rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', textAlign: 'left' }}>
+          <FaGlobe size={18} style={{ color: '#d97706', flexShrink: 0 }} />
+          <span>
+            Online consultations are available for convenient, personalized guidance from the comfort of your home. Please note that medicine and remedy kits are available only through our in-person service and <strong>cannot be delivered online</strong>.
+          </span>
+        </div>
       </div>
 
       <div className="specialty-grid" style={{ marginBottom: '3rem' }}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
-import { FaPhone, FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaEnvelope, FaXmark } from 'react-icons/fa6'
+import { FaPhone, FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaEnvelope, FaXmark, FaGlobe } from 'react-icons/fa6'
 import { FiMenu } from 'react-icons/fi'
 import logoImg from '../cureo/logo.jpg'
 import hoursIcon from '../assets/24_hours.png'
@@ -114,7 +114,6 @@ export default function Navbar() {
 
           <div className="header-action desktop-action">
             <Link to="/contact" className="btn-appointment-header">
-              <FaPhone size={14} />
               <span>Contact Us</span>
             </Link>
           </div>

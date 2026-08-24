@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaWhatsapp, FaCalendarCheck, FaClipboardList, FaUser, FaPhone, FaLocationDot, FaStethoscope, FaClock } from 'react-icons/fa6'
+import { FaWhatsapp, FaCalendarCheck, FaClipboardList, FaUser, FaPhone, FaLocationDot, FaStethoscope, FaClock, FaGlobe, FaTriangleExclamation, FaCircleCheck } from 'react-icons/fa6'
 import { addAppointment } from '../admin/adminStore'
 
 export default function AppointmentPage() {
@@ -168,8 +168,11 @@ _Sent from Cureo Website Appointment Portal_`;
                 onChange={handleChange}
               >
                 <option value="In-Clinic Consultation">In-Clinic Consultation (Dibrugarh)</option>
-                <option value="WhatsApp Online Consultation">WhatsApp Online Consultation</option>
+                <option value="WhatsApp Online Consultation (Global)">WhatsApp Online Consultation (Global - Prescription Only)</option>
               </select>
+              <small style={{ fontSize: '0.78rem', color: '#c2410c', marginTop: '4px', display: 'block', fontWeight: 500 }}>
+                * Note: Medicine kits are not deliverable online; digital prescriptions provided.
+              </small>
             </div>
 
             <div className="form-group">

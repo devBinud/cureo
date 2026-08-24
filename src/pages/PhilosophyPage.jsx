@@ -29,6 +29,11 @@ export default function PhilosophyPage() {
       question: "What main clinical conditions are treated at Cureo Clinic?",
       assamese: "আমাৰ ক্লিনিকত মূখ্যতঃ চালৰ সমস্যা (Skin Concerns & Allergies), অৰ্শ/গেছ/পাইলোন প্ৰব্লেম (Piles & Anorectal Care), আৰু হজমী ক্ৰিয়াৰ সমস্যা (Digestive & Bowel Health)ৰ বিশেষ চিকিৎসা প্ৰদান কৰা হয়।",
       english: "At Cureo Clinic, we specialize in gentle, root-cause management for Piles & Anorectal concerns, Digestive & Bowel health issues, and chronic Skin conditions & Allergies."
+    },
+    {
+      question: "Is online consultation available for global patients, and are medicine kits delivered online?",
+      assamese: "হাঁ, সমগ্ৰ বিশ্বৰ (Global) ৰোগীসকলৰ বাবে অনলাইন হোৱাটছএপ কাউন্সেলিং আৰু পৰামৰ্শ সেৱা উপলব্ধ। কিন্তু বিশেষভাৱে মন কৰিব—আমাৰ ফালৰ পৰা অনলাইন যোগে মেডিচিন কিট (Medicine Kit) ডেলিভাৰী কৰা নহয়। অনলাইন পৰামৰ্শৰ পিছত ৰোগীক ডিজিটেল প্ৰেচক্ৰিপশ্বন (Digital Prescription) প্ৰদান কৰা হয়, যাৰ দ্বাৰা ৰোগীয়ে নিজৰ স্থানীয় বজাৰৰ পৰা ঔষধ সংগ্ৰহ কৰিব পাৰে।",
+      english: "Yes! Dr. Niharika Bezboruah accepts patients across the globe for online video/audio tele-consultations. However, please note: Homeopathic medicine/treatment kits are NOT deliverable through online order or shipped internationally. Online consultation includes thorough constitutional case analysis and digital prescriptions for local remedy procurement."
     }
   ];
 
