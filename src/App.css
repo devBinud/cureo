@@ -1740,6 +1740,10 @@ body.drawer-open .floating-widgets-stack {
 }
 
 @media (max-width: 768px) {
+  .appointment-header .section-title {
+    font-size: 1.35rem !important;
+  }
+
   .appointment-container {
     width: 100vw !important;
     max-width: 100vw !important;

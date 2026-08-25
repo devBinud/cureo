@@ -141,38 +141,52 @@ export default function AppointmentPage() {
 
         <div className="appointment-container">
           {submitted ? (
-            <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-              <FaCircleCheck size={60} style={{ color: '#0b6b4f', marginBottom: '1.25rem' }} />
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#093819', marginBottom: '0.25rem' }}>
-                Booking Request Submitted!
+            <div style={{ textAlign: 'center', padding: '1rem 0 1.5rem' }}>
+              <FaCircleCheck size={52} style={{ color: '#0b6b4f', marginBottom: '0.75rem' }} />
+              <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#093819', marginBottom: '0.4rem', lineHeight: 1.3 }}>
+                Booking Request Submitted
               </h2>
-
-              <p style={{ fontSize: '0.95rem', color: '#475569', marginTop: 20, maxWidth: '520px', margin: '0 auto 1.75rem', lineHeight: 1.6 }}>
-                Thank you, <strong>{formData.patientName}</strong>. Your consultation request has been sent directly to the Cureo Homeopathic Clinic admin portal.
+              <p style={{ fontSize: '0.85rem', color: '#64748b', margin: '0 auto 1.5rem', lineHeight: 1.5 }}>
+                Your consultation request has been received
               </p>
 
-              <div style={{ background: '#f8faf9', border: '1px solid #e2ece4', borderRadius: '14px', padding: '1.5rem', textAlign: 'left', maxWidth: '520px', margin: '0 auto 2rem' }}>
-                <h4 style={{ fontSize: '0.85rem', color: '#0b6b4f', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem', borderBottom: '1px dashed #cbd5e1', paddingBottom: '0.5rem' }}>
-                  Summary of Request
-                </h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.85rem', fontSize: '0.875rem', color: '#1e293b' }}>
-                  <div><strong>Appointment ID:</strong> <span style={{ color: '#d97706', fontWeight: 700 }}>{createdBookingId}</span></div>
-                  <div><strong>Patient Name:</strong> {formData.patientName}</div>
-                  <div><strong>Phone:</strong> {formData.phone}</div>
-                  <div><strong>Age / Gender:</strong> {formData.age} Yrs ({formData.gender})</div>
-                  <div><strong>Location:</strong> {formData.location}</div>
-                  <div><strong>Health Concern:</strong> {formData.concern}</div>
-                  <div><strong>Consultation Mode:</strong> {formData.mode}</div>
-                  <div><strong>Preferred Date:</strong> {formData.preferredDate || 'Earliest Available'}</div>
-                  <div><strong>Time Slot:</strong> {formData.timeSlot}</div>
+              {/* Key Details - Full Width, No Border, No Padding */}
+              <div style={{ width: '100%', textAlign: 'left', marginBottom: '1.75rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem 1rem', fontSize: '0.825rem', color: '#1e293b' }}>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Appointment ID</div>
+                    <div style={{ fontWeight: 800, color: '#d97706' }}>{createdBookingId}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Patient Name</div>
+                    <div style={{ fontWeight: 700 }}>{formData.patientName}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Phone</div>
+                    <div style={{ fontWeight: 700 }}>{formData.phone}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Consultation Mode</div>
+                    <div style={{ fontWeight: 700 }}>{formData.mode}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Preferred Date</div>
+                    <div style={{ fontWeight: 700 }}>{formData.preferredDate || 'Earliest Available'}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Time Slot</div>
+                    <div style={{ fontWeight: 700 }}>{formData.timeSlot}</div>
+                  </div>
+                  <div style={{ gridColumn: '1 / -1' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>Health Concern</div>
+                    <div style={{ fontWeight: 700 }}>{formData.concern}</div>
+                  </div>
                 </div>
               </div>
 
-              <div style={{ maxWidth: '520px', margin: '0 auto' }}>
-                <button onClick={handleResetForm} className="btn-hero-primary" style={{ width: '100%', padding: '0.85rem' }}>
-                  Book Another Appointment
-                </button>
-              </div>
+              <button onClick={handleResetForm} className="btn-hero-primary" style={{ width: '100%', padding: '0.85rem' }}>
+                Book Another Appointment
+              </button>
             </div>
           ) : (
             <>
