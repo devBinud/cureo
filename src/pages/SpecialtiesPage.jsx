@@ -12,7 +12,6 @@ export default function SpecialtiesPage() {
         <p className="section-desc">Targeted, gentle, and constitutional care for chronic recurring concerns.</p>
 
         <div style={{ margin: '1.25rem auto 0', maxWidth: '780px', padding: '0.75rem 1rem', background: '#fffbeb', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', textAlign: 'left' }}>
-          <FaCircleInfo size={18} style={{ color: '#d97706', flexShrink: 0 }} />
           <span>
             Online consultations are available from the comfort of your home. After the consultation, medicine and remedy kits can be delivered to your doorstep by courier
           </span>

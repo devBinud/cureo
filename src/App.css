@@ -2324,10 +2324,12 @@ body.drawer-open .floating-widgets-stack {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .btn-directions-map {
     width: 100%;
     justify-content: center;
   }
+
   .clinic-map-frame-wrapper {
     height: 340px;
   }
