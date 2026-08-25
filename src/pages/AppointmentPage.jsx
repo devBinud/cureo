@@ -109,6 +109,7 @@ export default function AppointmentPage() {
     } finally {
       setSubmitting(false);
       setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -129,6 +130,7 @@ export default function AppointmentPage() {
     setFormSubmittedAttempted(false);
     setCreatedBookingId('');
     setSubmitted(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   return (
