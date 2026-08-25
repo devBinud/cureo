@@ -165,7 +165,7 @@ export default function HomePage() {
                 <div className="booking-btn-group">
                   <Link to="/appointment" className="btn-booking-primary">
                     <FaCalendarCheck size={18} />
-                    <span>Book Online Slot</span>
+                    <span>Book an Appointment</span>
                   </Link>
 
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-booking-whatsapp">
