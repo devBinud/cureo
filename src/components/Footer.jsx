@@ -26,17 +26,39 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>Location & Contact</h4>
-          <p style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            <FaLocationDot style={{ color: 'var(--accent-light)' }} /> Dibrugarh, Assam
-          </p>
-          <p>India - 786001</p>
-          <p style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.75rem' }}>
-            <FaWhatsapp style={{ color: '#25D366' }} /> WhatsApp Booking:
-          </p>
-          <p style={{ fontWeight: 'bold', color: 'var(--accent-light)', fontSize: '1.05rem', marginTop: '0.2rem' }}>+91 70029 74378</p>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-            Direct calls without prior booking will not be attended.
-          </p>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '1rem' }}>
+            <FaLocationDot style={{ color: '#86efac', flexShrink: 0, marginTop: '4px' }} size={16} />
+            <div style={{ fontSize: '0.9rem', lineHeight: '1.6', color: '#e0f4f8' }}>
+              <strong style={{ color: '#ffffff', display: 'block', marginBottom: '4px', fontSize: '0.95rem' }}>
+                Cureo Personalised Homeopathic Care
+              </strong>
+              <p style={{ margin: 0, color: '#d1d5db', lineHeight: '1.5' }}>
+                Lab collection centre, near Dr Lal path,<br />
+                opposite Honda dealer, Naliapool,<br />
+                Dibrugarh, Assam 786001
+              </p>
+              <div style={{ marginTop: '0.4rem' }}>
+                <a
+                  href="https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#86efac', fontSize: '0.8rem', textDecoration: 'underline', fontWeight: 600 }}
+                >
+                  View on Google Maps →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ borderTop: '1px dashed rgba(255, 255, 255, 0.15)', paddingTop: '0.85rem' }}>
+            <p style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', margin: 0 }}>
+              <FaWhatsapp style={{ color: '#25D366' }} /> WhatsApp Booking:
+            </p>
+            <p style={{ fontWeight: 'bold', color: '#86efac', fontSize: '1.05rem', marginTop: '0.2rem', marginBottom: '0.2rem' }}>+91 70029 74378</p>
+            <p style={{ fontSize: '0.78rem', color: '#a0aec0', margin: 0 }}>
+              Direct calls without prior booking will not be attended.
+            </p>
+          </div>
         </div>
       </div>
 

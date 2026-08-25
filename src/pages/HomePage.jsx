@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaLocationDot, FaRoute, FaArrowUpRightFromSquare } from 'react-icons/fa6'
+import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaChevronRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaCircleInfo, FaLocationDot, FaRoute, FaArrowUpRightFromSquare } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
 import heroImg from '../assets/hero-image.png'
@@ -8,6 +8,7 @@ import doctorImg from '../assets/doctor.jpeg'
 import gallery1 from '../cureo/gallery/1.jpg'
 import gallery2 from '../cureo/gallery/2.jpg'
 import gallery3 from '../cureo/gallery/3.jpg'
+import { FadeUp, FadeHorizontal, StaggerContainer, StaggerItem } from '../components/Animated'
 
 export default function HomePage() {
   const whatsappNumber = "917002974378";
@@ -28,7 +29,7 @@ export default function HomePage() {
           <div className="hero-gradient-overlay"></div>
 
           <div className="hero-content-wrapper">
-            <div className="hero-text-block">
+            <FadeUp className="hero-text-block">
               <h1 className="hero-main-title">
                 <span className="hero-title-blue">Personalized Healing</span><br />
                 <span className="hero-title-green">Your Health Matters</span>
@@ -40,36 +41,41 @@ export default function HomePage() {
 
               <div className="hero-banner-buttons">
                 <Link to="/appointment" className="btn-hero-primary">
-                  <FaCalendarCheck size={18} />
                   <span>Book An Appointment</span>
                 </Link>
               </div>
-            </div>
+            </FadeUp>
           </div>
         </div>
       </section>
 
       {/* 3-Column Specialty Action Bar */}
       <section className="quick-action-bar-wrapper">
-        <div className="quick-action-bar-container">
+        <StaggerContainer className="quick-action-bar-container">
           <div className="quick-action-top-banner">
             <span>Nurturing you from within</span>
           </div>
-          <Link to="/specialties" className="action-bar-item">
-            <div className="action-bar-icon"><FaStethoscope size={24} /></div>
-            <span className="action-bar-title">Piles & Anorectal Concerns</span>
-          </Link>
+          <StaggerItem style={{ flex: 1 }}>
+            <Link to="/specialties" className="action-bar-item">
+              <div className="action-bar-icon"><FaStethoscope size={24} /></div>
+              <span className="action-bar-title">Piles & Anorectal Concerns</span>
+            </Link>
+          </StaggerItem>
 
-          <Link to="/specialties" className="action-bar-item">
-            <div className="action-bar-icon"><GiStomach size={25} /></div>
-            <span className="action-bar-title">Digestive Issues</span>
-          </Link>
+          <StaggerItem style={{ flex: 1 }}>
+            <Link to="/specialties" className="action-bar-item">
+              <div className="action-bar-icon"><GiStomach size={25} /></div>
+              <span className="action-bar-title">Digestive Issues</span>
+            </Link>
+          </StaggerItem>
 
-          <Link to="/specialties" className="action-bar-item">
-            <div className="action-bar-icon"><GiSparkles size={24} /></div>
-            <span className="action-bar-title">Skin Concerns</span>
-          </Link>
-        </div>
+          <StaggerItem style={{ flex: 1 }}>
+            <Link to="/specialties" className="action-bar-item">
+              <div className="action-bar-icon"><GiSparkles size={24} /></div>
+              <span className="action-bar-title">Skin Concerns</span>
+            </Link>
+          </StaggerItem>
+        </StaggerContainer>
       </section>
 
       {/* About Us & Founder Spotlight Section (HealthCity UI) */}
@@ -77,17 +83,17 @@ export default function HomePage() {
         <div className="about-spotlight-container">
           <div className="about-grid">
             {/* Left Content Column */}
-            <div className="about-left-col">
+            <FadeHorizontal direction="left" className="about-left-col">
               <span className="about-tag">ABOUT US</span>
               <h2 className="about-title">Trusted Care.<br />World-Class Expertise.</h2>
               <p className="about-desc">
-                At Cureo Homeopathy Clinic, we are committed to providing gentle, high-quality, and personalized homeopathic healthcare. With expert consultation led by Dr. Niharika Bezboruah (BHMS) and individualized constitutional care, we ensure the best long-term wellness for every patient globally and locally.
+                At Cureo Homeopathy Clinic, we are committed to providing gentle, high-quality, and personalized homeopathic healthcare. With expert consultation led by Dr. Niharika Bezboruah (BHMS) and individualized constitutional care, we ensure the best long-term wellness for every patient globally and locally
               </p>
 
-              <div style={{ margin: '1rem 0 1.5rem', padding: '0.75rem 1rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <FaGlobe size={18} style={{ color: '#d97706', flexShrink: 0 }} />
+              <div style={{ margin: '1rem 0 1.5rem', padding: '0.75rem 1rem', background: '#fffbeb', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FaCircleInfo size={18} style={{ color: '#d97706', flexShrink: 0 }} />
                 <span>
-                  Online consultations are available for convenient, personalized guidance from the comfort of your home. Please note that medicine and remedy kits are available only through our in-person service and <strong>cannot be delivered online</strong>.
+                  Online consultations are available from the comfort of your home. After the consultation, medicine and remedy kits can be delivered to your doorstep by courier
                 </span>
               </div>
 
@@ -96,10 +102,10 @@ export default function HomePage() {
                   <span>Know More About Us</span>
                 </Link>
               </div>
-            </div>
+            </FadeHorizontal>
 
             {/* Right Doctor Founder Card (Matching HealthCity UI) */}
-            <div className="about-right-card">
+            <FadeHorizontal direction="right" className="about-right-card">
               <div className="doctor-header-row">
                 <img src={doctorImg} alt="Dr. Niharika Bezboruah" className="doctor-avatar-img" />
                 <div className="doctor-header-info">
@@ -114,7 +120,7 @@ export default function HomePage() {
                   At Cureo Clinic, we are deeply committed to empowering every patient with individualized, constitutional homeopathic care that restores natural vitality and long-term health. Our mission is to deliver compassionate, root-cause healing tailored to your unique wellness journey...
                 </p>
               </div>
-            </div>
+            </FadeHorizontal>
           </div>
         </div>
       </section>
@@ -122,12 +128,12 @@ export default function HomePage() {
       {/* Appointment Booking Section */}
       <section className="booking-cta-section">
         <div className="booking-cta-container">
-          <div className="booking-cta-content">
+          <FadeUp className="booking-cta-content">
             <div className="booking-cta-text">
               <span className="booking-tag">Prior Appointment Mandatory</span>
               <h2 className="booking-title">Ready for Personalised Homeopathic Healing?</h2>
               <p className="booking-desc">
-                Consult directly with Dr. Niharika Bezboruah (BHMS). We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns — available in-clinic at Dibrugarh and via online tele-consultation worldwide.
+                Consult directly with Dr. Niharika Bezboruah (BHMS). We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns - available in-clinic at Dibrugarh and via online tele-consultation worldwide.
               </p>
 
               <div className="booking-features-list">
@@ -145,10 +151,10 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div style={{ marginTop: '1.25rem', padding: '0.75rem 1rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <FaGlobe size={18} style={{ color: '#d97706', flexShrink: 0 }} />
+              <div style={{ marginTop: '1.25rem', padding: '0.75rem 1rem', background: '#fffbeb', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FaCircleInfo size={18} style={{ color: '#d97706', flexShrink: 0 }} />
                 <span>
-                  Online consultations are available for convenient, personalized guidance from the comfort of your home. Please note that medicine and remedy kits are available only through our in-person service and <strong>cannot be delivered online</strong>.
+                  Online consultations are available from the comfort of your home. After the consultation, medicine and remedy kits can be delivered to your doorstep by courier
                 </span>
               </div>
             </div>
@@ -176,14 +182,14 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* Google Reviews Testimonials Section (Before Gallery) */}
       <section className="testimonials-section">
         <div className="testimonials-container">
-          <div className="section-header">
+          <FadeUp className="section-header">
             <div className="google-badge-header">
               <FcGoogle size={22} />
               <span className="google-rating-text">4.9 / 5.0 Rating on Google Reviews</span>
@@ -197,10 +203,10 @@ export default function HomePage() {
             </div>
             <h2 className="section-title">Patient Testimonials</h2>
             <p className="section-desc">Real stories and verified experiences from patients treated at Cureo Clinic.</p>
-          </div>
+          </FadeUp>
 
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
+          <StaggerContainer className="testimonials-grid">
+            <StaggerItem className="testimonial-card">
               <div className="card-top-row">
                 <div className="google-icon-box">
                   <FcGoogle size={20} />
@@ -225,9 +231,9 @@ export default function HomePage() {
                   <span className="treatment-tag">Skin Care Patient</span>
                 </div>
               </div>
-            </div>
+            </StaggerItem>
 
-            <div className="testimonial-card">
+            <StaggerItem className="testimonial-card">
               <div className="card-top-row">
                 <div className="google-icon-box">
                   <FcGoogle size={20} />
@@ -252,9 +258,9 @@ export default function HomePage() {
                   <span className="treatment-tag">Digestive Health Patient</span>
                 </div>
               </div>
-            </div>
+            </StaggerItem>
 
-            <div className="testimonial-card">
+            <StaggerItem className="testimonial-card">
               <div className="card-top-row">
                 <div className="google-icon-box">
                   <FcGoogle size={20} />
@@ -279,41 +285,41 @@ export default function HomePage() {
                   <span className="treatment-tag">Piles Care Patient</span>
                 </div>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Gallery Showcase */}
       <section className="section">
-        <div className="section-header">
+        <FadeUp className="section-header">
           <span className="section-tag">Clinic Showcase</span>
           <h2 className="section-title">Gallery</h2>
           <p className="section-desc">A glimpse into Cureo Homeopathy Clinic and patient care environment.</p>
-        </div>
+        </FadeUp>
 
-        <div className="gallery-grid">
-          <div className="gallery-item">
+        <StaggerContainer className="gallery-grid">
+          <StaggerItem className="gallery-item">
             <img src={gallery1} alt="Cureo Clinic Showcase 1" className="gallery-img" />
-          </div>
-          <div className="gallery-item">
+          </StaggerItem>
+          <StaggerItem className="gallery-item">
             <img src={gallery2} alt="Cureo Clinic Showcase 2" className="gallery-img" />
-          </div>
-          <div className="gallery-item">
+          </StaggerItem>
+          <StaggerItem className="gallery-item">
             <img src={gallery3} alt="Cureo Clinic Showcase 3" className="gallery-img" />
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
       </section>
 
       {/* Embedded Google Maps Section */}
       <section className="section" style={{ paddingTop: '1rem', marginBottom: '3rem' }}>
-        <div className="section-header">
+        <FadeUp className="section-header">
           <span className="section-tag">Find Us</span>
           <h2 className="section-title">Clinic Location</h2>
           <p className="section-desc">Visit Cureo Personalised Homeopathic Care in Dibrugarh, Assam.</p>
-        </div>
+        </FadeUp>
 
-        <div className="clinic-map-section">
+        <FadeUp className="clinic-map-section">
           <div className="clinic-map-header">
             <div className="clinic-map-title-box">
               <h3><FaLocationDot style={{ color: '#86efac' }} /> Cureo Personalised Homeopathic Care</h3>
@@ -335,7 +341,7 @@ export default function HomePage() {
               title="Cureo Personalised Homeopathic Care Location Map"
             ></iframe>
           </div>
-        </div>
+        </FadeUp>
       </section>
     </>
   )

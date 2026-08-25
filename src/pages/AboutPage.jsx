@@ -2,16 +2,17 @@ import { Link } from 'react-router-dom'
 import { FaUserDoctor, FaGraduationCap, FaLocationDot, FaCalendarCheck, FaGlobe } from 'react-icons/fa6'
 import logoImg from '../cureo/logo.jpg'
 import coverImg from '../cureo/cover.jpg'
+import { FadeUp, FadeHorizontal } from '../components/Animated'
 
 export default function AboutPage() {
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
-      <div className="section-header">
+      <FadeUp className="section-header">
         <h2 className="section-title">About Cureo</h2>
-      </div>
+      </FadeUp>
 
       <div className="hero-grid" style={{ marginBottom: '3rem' }}>
-        <div className="hero-text-content">
+        <FadeHorizontal direction="left" className="hero-text-content">
           <h2 style={{ fontSize: '2rem', color: 'var(--primary)', marginBottom: '1rem' }}>
             Personalized Homeopathic Healthcare
           </h2>
@@ -33,11 +34,11 @@ export default function AboutPage() {
               <span><strong>Consultation Modes:</strong> In-Clinic (Dibrugarh) & Worldwide Tele-Consultation</span>
             </div>
           </div>
-        </div>
+        </FadeHorizontal>
 
-        <div className="hero-image-wrapper">
+        <FadeHorizontal direction="right" className="hero-image-wrapper">
           <img src={coverImg} alt="Dr. Niharika Bezboruah Clinic Cover" className="hero-cover-img" />
-        </div>
+        </FadeHorizontal>
       </div>
     </div>
   )

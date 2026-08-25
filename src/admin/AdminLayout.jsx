@@ -100,7 +100,7 @@ export default function AdminLayout({ children, activeTab = 'appointments', onTa
                 <FaUserShield />
               </div>
               <div className="admin-user-info">
-                <span className="admin-user-name">Dr. Bezboruah</span>
+                <span className="admin-user-name">Admin</span>
                 <span className="admin-user-role">Administrator</span>
               </div>
             </div>

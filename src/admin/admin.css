@@ -119,8 +119,10 @@
   height: 64px;
   width: auto;
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  mix-blend-mode: multiply;
 }
 
 .admin-login-title {
@@ -207,7 +209,7 @@
 .admin-form-input:focus {
   border-color: #10b981;
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+  box-shadow: none;
 }
 
 .admin-error-box {
@@ -1394,4 +1396,10 @@
   align-items: center;
   gap: 0.75rem;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

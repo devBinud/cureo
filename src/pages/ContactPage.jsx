@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FaWhatsapp, FaLocationDot, FaCalendarCheck, FaGlobe, FaRoute, FaArrowUpRightFromSquare } from 'react-icons/fa6'
+import { FadeUp, StaggerContainer, StaggerItem } from '../components/Animated'
 
 export default function ContactPage() {
   const whatsappNumber = "917002974378";
@@ -8,14 +9,14 @@ export default function ContactPage() {
 
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
-      <div className="section-header">
+      <FadeUp className="section-header">
         <span className="section-tag">Get In Touch</span>
         <h2 className="section-title">Contact & Clinic Location</h2>
         <p className="section-desc">Consultation details, interactive Google Map, and appointment instructions for Dr. Niharika Bezboruah.</p>
-      </div>
+      </FadeUp>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
-        <div className="specialty-card">
+      <StaggerContainer style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
+        <StaggerItem className="specialty-card">
           <div className="specialty-icon-box">
             <FaLocationDot />
           </div>
@@ -32,9 +33,9 @@ export default function ContactPage() {
               Open Directions <FaArrowUpRightFromSquare size={11} />
             </a>
           </div>
-        </div>
+        </StaggerItem>
 
-        <div className="specialty-card">
+        <StaggerItem className="specialty-card">
           <div className="specialty-icon-box">
             <FaCalendarCheck />
           </div>
@@ -47,11 +48,11 @@ export default function ContactPage() {
               Open Appointment Portal →
             </Link>
           </div>
-        </div>
-      </div>
+        </StaggerItem>
+      </StaggerContainer>
 
       {/* Embedded Google Maps Section */}
-      <div className="clinic-map-section">
+      <FadeUp className="clinic-map-section">
         <div className="clinic-map-header">
           <div className="clinic-map-title-box">
             <h3><FaLocationDot style={{ color: '#86efac' }} /> Cureo Personalised Homeopathic Care</h3>
@@ -73,8 +74,7 @@ export default function ContactPage() {
             title="Cureo Personalised Homeopathic Care Location Map"
           ></iframe>
         </div>
-      </div>
+      </FadeUp>
     </div>
   )
 }
-

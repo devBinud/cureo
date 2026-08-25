@@ -1,28 +1,28 @@
-// src/admin/AdminDashboard.jsx
 import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  FaCalendarCheck, FaClock, FaUserPlus, FaFileCsv, FaRotateLeft,
+  FaCalendarCheck, FaClock, FaFileCsv,
   FaMagnifyingGlass, FaEye, FaTrash, FaWhatsapp, FaPhone, FaXmark,
-  FaCheck, FaStethoscope, FaHospital, FaCalendarDays,
-  FaUserGroup, FaGear, FaFloppyDisk, FaPlus, FaLocationDot, FaEnvelope,
+  FaCheck, FaStethoscope, FaCalendarDays,
+  FaUserGroup, FaFloppyDisk, FaLocationDot, FaEnvelope,
   FaCircleCheck, FaUserCheck, FaClipboardList
 } from 'react-icons/fa6';
 import AdminLayout from './AdminLayout';
 import {
   isAuthenticated, getAppointments, updateAppointmentStatus,
-  deleteAppointment, addAppointment, resetMockData
+  deleteAppointment
 } from './adminStore';
+import { subscribeToAppointments, updateAppointmentStatusInFirebase, deleteAppointmentFromFirebase } from '../firebase';
 import './admin.css';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('appointments');
   const [appointments, setAppointments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
   const [selectedAppointment, setSelectedAppointment] = useState(null);
-  const [showAddModal, setShowAddModal] = useState(false);
 
   // Patient Directory Search
   const [patientSearch, setPatientSearch] = useState('');
@@ -43,72 +43,43 @@ export default function AdminDashboard() {
     emailNotify: true
   });
 
-
-
-  // New appointment form state
-  const [newForm, setNewForm] = useState({
-    patientName: '',
-    phone: '',
-    age: '',
-    gender: 'Female',
-    location: 'Dibrugarh',
-    concern: 'Skin Concerns',
-    mode: 'In-Clinic Consultation',
-    preferredDate: '',
-    timeSlot: 'Morning (10:00 AM - 1:00 PM)',
-    notes: ''
-  });
-
   useEffect(() => {
     if (!isAuthenticated()) {
       navigate('/admin/login', { replace: true });
-    } else {
-      setAppointments(getAppointments());
+      return;
     }
+
+    // Live real-time subscription to Firebase Firestore Database
+    const unsubscribe = subscribeToAppointments((liveApps) => {
+      if (liveApps) {
+        setAppointments(liveApps);
+      }
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
   }, [navigate]);
 
-  const handleStatusChange = (id, newStatus) => {
-    const updated = updateAppointmentStatus(id, newStatus);
-    setAppointments(updated);
-    if (selectedAppointment && selectedAppointment.id === id) {
+  const handleStatusChange = async (appItemOrId, newStatus) => {
+    const targetId = typeof appItemOrId === 'object' ? appItemOrId.id : appItemOrId;
+    setAppointments((prev) => prev.map(a => (a.id === targetId || a.firestoreDocId === targetId) ? { ...a, status: newStatus } : a));
+    updateAppointmentStatus(targetId, newStatus);
+    if (selectedAppointment && (selectedAppointment.id === targetId || selectedAppointment.firestoreDocId === targetId)) {
       setSelectedAppointment({ ...selectedAppointment, status: newStatus });
     }
+    await updateAppointmentStatusInFirebase(appItemOrId, newStatus);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (appItemOrId) => {
+    const targetId = typeof appItemOrId === 'object' ? appItemOrId.id : appItemOrId;
     if (window.confirm('Are you sure you want to delete this appointment record?')) {
-      const updated = deleteAppointment(id);
-      setAppointments(updated);
-      if (selectedAppointment && selectedAppointment.id === id) {
+      setAppointments((prev) => prev.filter(a => a.id !== targetId && a.firestoreDocId !== targetId));
+      deleteAppointment(targetId);
+      if (selectedAppointment && (selectedAppointment.id === targetId || selectedAppointment.firestoreDocId === targetId)) {
         setSelectedAppointment(null);
       }
+      await deleteAppointmentFromFirebase(appItemOrId);
     }
-  };
-
-  const handleResetData = () => {
-    if (window.confirm('Reset appointments list to default sample records?')) {
-      const res = resetMockData();
-      setAppointments(res);
-    }
-  };
-
-  const handleAddSubmit = (e) => {
-    e.preventDefault();
-    addAppointment(newForm);
-    setAppointments(getAppointments());
-    setShowAddModal(false);
-    setNewForm({
-      patientName: '',
-      phone: '',
-      age: '',
-      gender: 'Female',
-      location: 'Dibrugarh',
-      concern: 'Skin Concerns',
-      mode: 'In-Clinic Consultation',
-      preferredDate: '',
-      timeSlot: 'Morning (10:00 AM - 1:00 PM)',
-      notes: ''
-    });
   };
 
   // Export to CSV
@@ -146,12 +117,17 @@ export default function AdminDashboard() {
     return appointments.filter(app => {
       const matchesStatus = statusFilter === 'All' || app.status === statusFilter;
       const query = searchQuery.toLowerCase();
+      const name = (app.patientName || '').toLowerCase();
+      const phone = (app.phone || '').toLowerCase();
+      const location = (app.location || '').toLowerCase();
+      const concern = (app.concern || '').toLowerCase();
+      const id = (app.id || '').toLowerCase();
       const matchesSearch =
-        app.patientName.toLowerCase().includes(query) ||
-        app.phone.toLowerCase().includes(query) ||
-        app.location.toLowerCase().includes(query) ||
-        app.concern.toLowerCase().includes(query) ||
-        app.id.toLowerCase().includes(query);
+        name.includes(query) ||
+        phone.includes(query) ||
+        location.includes(query) ||
+        concern.includes(query) ||
+        id.includes(query);
       return matchesStatus && matchesSearch;
     });
   }, [appointments, searchQuery, statusFilter]);
@@ -169,19 +145,21 @@ export default function AdminDashboard() {
   const uniquePatients = useMemo(() => {
     const map = new Map();
     appointments.forEach((app, idx) => {
-      const key = app.phone.replace(/[^0-9]/g, '') || app.patientName.toLowerCase();
+      const phoneStr = (app.phone || '').replace(/[^0-9]/g, '');
+      const nameStr = (app.patientName || '').toLowerCase();
+      const key = phoneStr || nameStr || `patient-${idx}`;
       if (!map.has(key)) {
         map.set(key, {
           id: `PAT-10${idx + 1}`,
-          patientName: app.patientName,
-          phone: app.phone,
-          age: app.age,
-          gender: app.gender,
-          location: app.location,
-          concern: app.concern,
+          patientName: app.patientName || 'Anonymous',
+          phone: app.phone || 'N/A',
+          age: app.age || '',
+          gender: app.gender || '',
+          location: app.location || '',
+          concern: app.concern || '',
           totalVisits: 1,
-          lastVisit: app.preferredDate || app.createdAt,
-          lastStatus: app.status
+          lastVisit: app.preferredDate || app.createdAt || '',
+          lastStatus: app.status || 'Pending'
         });
       } else {
         const existing = map.get(key);
@@ -191,10 +169,10 @@ export default function AdminDashboard() {
     return Array.from(map.values()).filter(p => {
       const q = patientSearch.toLowerCase();
       return (
-        p.patientName.toLowerCase().includes(q) ||
-        p.phone.toLowerCase().includes(q) ||
-        p.location.toLowerCase().includes(q) ||
-        p.concern.toLowerCase().includes(q)
+        (p.patientName || '').toLowerCase().includes(q) ||
+        (p.phone || '').toLowerCase().includes(q) ||
+        (p.location || '').toLowerCase().includes(q) ||
+        (p.concern || '').toLowerCase().includes(q)
       );
     });
   }, [appointments, patientSearch]);
@@ -264,19 +242,7 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* Card 4: Book Appointment CTA Card */}
-            <div
-              className="admin-stat-card cta-card"
-              onClick={() => setShowAddModal(true)}
-              title="Create New Patient Booking"
-            >
-              <div className="admin-stat-icon cta-icon">
-                <FaPlus />
-              </div>
-              <div className="admin-stat-info">
-                <h3 className="stat-value cta">Book Appointment</h3>
-              </div>
-            </div>
+
           </div>
 
           {/* Controls & Search Bar */}
@@ -309,7 +275,19 @@ export default function AdminDashboard() {
 
           {/* Appointments List Table */}
           <div className="admin-table-container">
-            {filteredAppointments.length === 0 ? (
+            {isLoading ? (
+              <div style={{ padding: '3rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
+                <div style={{
+                  width: '44px',
+                  height: '44px',
+                  border: '4px solid rgba(16, 185, 129, 0.15)',
+                  borderTop: '4px solid #10b981',
+                  borderRadius: '50%',
+                  animation: 'spin 0.85s linear infinite'
+                }} />
+                <p style={{ color: 'var(--admin-text-muted)', fontSize: '0.9rem', fontWeight: 500 }}>Loading appointments from database...</p>
+              </div>
+            ) : filteredAppointments.length === 0 ? (
               <div className="admin-empty-state">
                 <FaCalendarDays className="admin-empty-icon" />
                 <h3>No Appointments Found</h3>
@@ -355,7 +333,7 @@ export default function AdminDashboard() {
                         <select
                           className={`status-pill ${app.status}`}
                           value={app.status}
-                          onChange={(e) => handleStatusChange(app.id, e.target.value)}
+                          onChange={(e) => handleStatusChange(app, e.target.value)}
                           style={{ cursor: 'pointer', outline: 'none' }}
                         >
                           <option value="Pending">Pending</option>
@@ -376,7 +354,7 @@ export default function AdminDashboard() {
                           <button
                             className="table-btn-pill delete"
                             title="Delete Record"
-                            onClick={() => handleDelete(app.id)}
+                            onClick={() => handleDelete(app)}
                           >
                             <FaTrash /> Delete
                           </button>
@@ -400,11 +378,7 @@ export default function AdminDashboard() {
               <p>Manage patient records, contact history, and consultation counts</p>
             </div>
 
-            <div className="admin-actions-group">
-              <button onClick={() => setShowAddModal(true)} className="admin-btn-primary" style={{ width: 'auto', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.65rem 1.2rem' }}>
-                <FaUserPlus /> Add New Patient
-              </button>
-            </div>
+
           </div>
 
           <div className="admin-stats-grid">
@@ -632,36 +606,7 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* Consultation Slots Section */}
-            <div className="settings-card" style={{ marginTop: '1.5rem' }}>
-              <h2 className="settings-card-title">
-                <FaClock style={{ color: '#0284c7' }} /> Daily Consultation Time Slots
-              </h2>
 
-              <div className="details-grid" style={{ marginBottom: 0 }}>
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Morning Slot Timing</label>
-                  <input
-                    type="text"
-                    className="admin-form-input"
-                    style={{ paddingLeft: '1rem' }}
-                    value={clinicSettings.morningSlot}
-                    onChange={(e) => setClinicSettings({ ...clinicSettings, morningSlot: e.target.value })}
-                  />
-                </div>
-
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Afternoon Slot Timing</label>
-                  <input
-                    type="text"
-                    className="admin-form-input"
-                    style={{ paddingLeft: '1rem' }}
-                    value={clinicSettings.afternoonSlot}
-                    onChange={(e) => setClinicSettings({ ...clinicSettings, afternoonSlot: e.target.value })}
-                  />
-                </div>
-              </div>
-            </div>
 
             {/* Save Button */}
             <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'flex-end' }}>
@@ -749,166 +694,7 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      {/* Manual New Appointment Modal */}
-      {showAddModal && (
-        <div className="admin-modal-overlay" onClick={() => setShowAddModal(false)}>
-          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="admin-modal-header">
-              <h2>Create New Patient Booking</h2>
-              <button className="admin-modal-close" onClick={() => setShowAddModal(false)}>
-                <FaXmark />
-              </button>
-            </div>
 
-            <form onSubmit={handleAddSubmit} className="admin-modal-body">
-              <div className="admin-form-group">
-                <label className="admin-form-label">Patient Name *</label>
-                <input
-                  type="text"
-                  className="admin-form-input"
-                  style={{ paddingLeft: '1rem' }}
-                  placeholder="e.g. Ramesh Kumar"
-                  value={newForm.patientName}
-                  onChange={(e) => setNewForm({ ...newForm, patientName: e.target.value })}
-                  required
-                />
-              </div>
-
-              <div className="details-grid" style={{ marginBottom: '1rem' }}>
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Phone Number *</label>
-                  <input
-                    type="tel"
-                    className="admin-form-input"
-                    style={{ paddingLeft: '1rem' }}
-                    placeholder="+91 98765 43210"
-                    value={newForm.phone}
-                    onChange={(e) => setNewForm({ ...newForm, phone: e.target.value })}
-                    required
-                  />
-                </div>
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Age</label>
-                  <input
-                    type="number"
-                    className="admin-form-input"
-                    style={{ paddingLeft: '1rem' }}
-                    placeholder="35"
-                    value={newForm.age}
-                    onChange={(e) => setNewForm({ ...newForm, age: e.target.value })}
-                  />
-                </div>
-              </div>
-
-              <div className="details-grid" style={{ marginBottom: '1rem' }}>
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Gender</label>
-                  <select
-                    className="admin-select"
-                    style={{ width: '100%' }}
-                    value={newForm.gender}
-                    onChange={(e) => setNewForm({ ...newForm, gender: e.target.value })}
-                  >
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Location / City</label>
-                  <input
-                    type="text"
-                    className="admin-form-input"
-                    style={{ paddingLeft: '1rem' }}
-                    placeholder="Dibrugarh"
-                    value={newForm.location}
-                    onChange={(e) => setNewForm({ ...newForm, location: e.target.value })}
-                  />
-                </div>
-              </div>
-
-              <div className="details-grid" style={{ marginBottom: '1rem' }}>
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Health Concern</label>
-                  <select
-                    className="admin-select"
-                    style={{ width: '100%' }}
-                    value={newForm.concern}
-                    onChange={(e) => setNewForm({ ...newForm, concern: e.target.value })}
-                  >
-                    <option value="Skin Concerns">Skin Concerns</option>
-                    <option value="Piles & Anorectal Care">Piles & Anorectal Care</option>
-                    <option value="Digestive & Bowel Health">Digestive & Bowel Health</option>
-                    <option value="General Homeopathic Consultation">General Homeopathic Consultation</option>
-                  </select>
-                </div>
-
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Consultation Mode</label>
-                  <select
-                    className="admin-select"
-                    style={{ width: '100%' }}
-                    value={newForm.mode}
-                    onChange={(e) => setNewForm({ ...newForm, mode: e.target.value })}
-                  >
-                    <option value="In-Clinic Consultation">In-Clinic Consultation</option>
-                    <option value="WhatsApp Online Consultation">WhatsApp Online Consultation</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="details-grid" style={{ marginBottom: '1rem' }}>
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Preferred Date</label>
-                  <input
-                    type="date"
-                    className="admin-form-input"
-                    style={{ paddingLeft: '1rem' }}
-                    value={newForm.preferredDate}
-                    onChange={(e) => setNewForm({ ...newForm, preferredDate: e.target.value })}
-                  />
-                </div>
-
-                <div className="admin-form-group" style={{ marginBottom: 0 }}>
-                  <label className="admin-form-label">Time Slot</label>
-                  <select
-                    className="admin-select"
-                    style={{ width: '100%' }}
-                    value={newForm.timeSlot}
-                    onChange={(e) => setNewForm({ ...newForm, timeSlot: e.target.value })}
-                  >
-                    <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
-                    <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
-                    <option value="Evening (5:00 PM - 8:00 PM)">Evening (5:00 PM - 8:00 PM)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="admin-form-group">
-                <label className="admin-form-label">Patient Symptoms / Notes</label>
-                <textarea
-                  rows="3"
-                  className="admin-form-input"
-                  style={{ paddingLeft: '1rem', height: 'auto' }}
-                  placeholder="Notes about patient condition..."
-                  value={newForm.notes}
-                  onChange={(e) => setNewForm({ ...newForm, notes: e.target.value })}
-                ></textarea>
-              </div>
-
-              <div className="modal-actions">
-                <button type="button" className="admin-btn-secondary" onClick={() => setShowAddModal(false)}>
-                  Cancel
-                </button>
-                <button type="submit" className="admin-btn-primary" style={{ width: 'auto', padding: '0.65rem 1.5rem' }}>
-                  Save Appointment
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </AdminLayout>
   );
 }

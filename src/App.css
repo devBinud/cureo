@@ -203,6 +203,7 @@ main {
   border-radius: 0;
   border: none;
   box-shadow: none;
+  mix-blend-mode: multiply;
 }
 
 .nav-links {
@@ -1588,8 +1589,31 @@ body.drawer-open .floating-widgets-stack {
    APPOINTMENT BOOKING PORTAL FORM STYLING
    ========================================== */
 
-.appointment-container {
+.appointment-page-wrapper {
   max-width: 980px;
+  margin: 0 auto;
+}
+
+.appointment-header {
+  max-width: 100% !important;
+  margin: 0 0 1.5rem 0 !important;
+}
+
+.appointment-header .section-title {
+  font-size: 1.85rem !important;
+  font-weight: 800;
+  color: #093819;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.appointment-header .section-tag {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em;
+}
+
+.appointment-container {
+  max-width: 100% !important;
   width: 100%;
   margin: 0 auto 4rem;
   background-color: #ffffff;
@@ -1597,6 +1621,22 @@ body.drawer-open .floating-widgets-stack {
   padding: 2.75rem 2.5rem;
   border: 1px solid #e2ece4;
   box-shadow: 0 12px 35px rgba(9, 56, 25, 0.06);
+}
+
+.appointment-amber-banner {
+  width: 100%;
+  margin-bottom: 1.75rem;
+  padding: 0.9rem 1.25rem;
+  background-color: #fffbeb;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #78350f;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.55;
+  box-sizing: border-box;
 }
 
 .policy-card {
@@ -1684,7 +1724,7 @@ body.drawer-open .floating-widgets-stack {
 .form-textarea:focus {
   background-color: #ffffff;
   border-color: #0b6b4f;
-  box-shadow: 0 0 0 3.5px rgba(11, 107, 79, 0.12);
+  box-shadow: none;
 }
 
 .form-textarea {
@@ -1710,6 +1750,16 @@ body.drawer-open .floating-widgets-stack {
     border-right: none !important;
     box-shadow: none !important;
     padding: 1.5rem 1.15rem 2.5rem;
+  }
+
+  .appointment-amber-banner {
+    width: calc(100% + 2.3rem) !important;
+    margin-left: -1.15rem !important;
+    margin-right: -1.15rem !important;
+    margin-top: -1.5rem !important;
+    border-radius: 0 !important;
+    border: none !important;
+    padding: 0.95rem 1.15rem !important;
   }
 
   .form-section-header {
@@ -1762,10 +1812,14 @@ body.drawer-open .floating-widgets-stack {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1.3fr;
   gap: 2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-col:last-child {
+  justify-self: end;
 }
 
 .footer-brand h3 {
@@ -1875,6 +1929,10 @@ body.drawer-open .floating-widgets-stack {
     grid-template-columns: 1fr;
     gap: 1.75rem;
     padding-bottom: 1.75rem;
+  }
+
+  .footer-col:last-child {
+    justify-self: start !important;
   }
 
   .footer-brand h3 {

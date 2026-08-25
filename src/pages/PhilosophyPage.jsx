@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaChevronDown, FaCalendarCheck, FaCircleQuestion } from 'react-icons/fa6'
+import { FaChevronDown, FaChevronRight, FaCircleQuestion } from 'react-icons/fa6'
+import { FadeUp, StaggerContainer, StaggerItem } from '../components/Animated'
 
 export default function PhilosophyPage() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -31,25 +32,25 @@ export default function PhilosophyPage() {
       english: "At Cureo Clinic, we specialize in gentle, root-cause management for Piles & Anorectal concerns, Digestive & Bowel health issues, and chronic Skin conditions & Allergies."
     },
     {
-      question: "Is online consultation available for global patients, and are medicine kits delivered online?",
-      assamese: "হাঁ, সমগ্ৰ বিশ্বৰ (Global) ৰোগীসকলৰ বাবে অনলাইন হোৱাটছএপ কাউন্সেলিং আৰু পৰামৰ্শ সেৱা উপলব্ধ। কিন্তু বিশেষভাৱে মন কৰিব—আমাৰ ফালৰ পৰা অনলাইন যোগে মেডিচিন কিট (Medicine Kit) ডেলিভাৰী কৰা নহয়। অনলাইন পৰামৰ্শৰ পিছত ৰোগীক ডিজিটেল প্ৰেচক্ৰিপশ্বন (Digital Prescription) প্ৰদান কৰা হয়, যাৰ দ্বাৰা ৰোগীয়ে নিজৰ স্থানীয় বজাৰৰ পৰা ঔষধ সংগ্ৰহ কৰিব পাৰে।",
-      english: "Yes! Dr. Niharika Bezboruah accepts patients across the globe for online video/audio tele-consultations. However, please note: Homeopathic medicine/treatment kits are NOT deliverable through online order or shipped internationally. Online consultation includes thorough constitutional case analysis and digital prescriptions for local remedy procurement."
+      question: "Is online consultation available for global patients, and are medicine kits delivered via courier?",
+      assamese: "হাঁ, সমগ্ৰ বিশ্বৰ (Global) ৰোগীসকলৰ বাবে অনলাইন হোৱাটছএপ কাউন্সেলিং আৰু পৰামৰ্শ সেৱা উপলব্ধ। অনলাইন পৰামৰ্শ আৰু বিস্তৃত কেছ-টেকিং মূল্যায়নৰ পিছত, নিৰ্বাচিত মেডিচিন আৰু ৰেমেডি কিট কুৰিয়াৰ (Courier) যোগে আপোনাৰ ঘৰৰ ঠিকনালৈ ডেলিভাৰী কৰা হয়।",
+      english: "Yes! Dr. Niharika Bezboruah accepts patients across the globe for online video/audio tele-consultations. Following thorough constitutional case analysis and evaluation, your prescribed homeopathic medicine & remedy kits can be delivered directly to your doorstep by courier."
     }
   ];
 
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
-      <div className="section-header">
+      <FadeUp className="section-header">
         <span className="section-tag">FREQUENTLY ASKED QUESTIONS</span>
         <h2 className="section-title">FAQ & Treatment Approach</h2>
         <p className="section-desc">Understanding constitutional homeopathy, consultation guidelines, and root-cause healing.</p>
-      </div>
+      </FadeUp>
 
-      <div className="faq-container">
+      <StaggerContainer className="faq-container">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           return (
-            <div key={index} className={`faq-card ${isOpen ? 'open' : ''}`}>
+            <StaggerItem key={index} className={`faq-card ${isOpen ? 'open' : ''}`}>
               <button className="faq-header-button" onClick={() => toggleFaq(index)}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <FaCircleQuestion size={20} style={{ color: '#0b6b4f', flexShrink: 0 }} />
@@ -73,18 +74,18 @@ export default function PhilosophyPage() {
                   </div>
                 </div>
               )}
-            </div>
+            </StaggerItem>
           );
         })}
-      </div>
+      </StaggerContainer>
 
       {/* CTA Button with Button 18 Styling */}
-      <div style={{ textAlign: 'center', marginTop: '3rem', marginBottom: '2rem' }}>
+      <FadeUp style={{ textAlign: 'center', marginTop: '3rem', marginBottom: '2rem' }}>
         <Link to="/appointment" className="btn-hero-primary">
-          <FaCalendarCheck size={18} />
           <span>Book Consultation with Dr. Niharika</span>
+          <FaChevronRight size={16} />
         </Link>
-      </div>
+      </FadeUp>
     </div>
   )
 }

@@ -97,12 +97,12 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to="/specialties" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
-                Specialties
+                specialities
               </NavLink>
             </li>
             <li>
-              <NavLink to="/philosophy" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
-                FAQ
+              <NavLink to="/faqs" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
+                FAQs
               </NavLink>
             </li>
             <li>
@@ -169,7 +169,7 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/philosophy" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
+              <NavLink to="/faqs" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
                 FAQ & Philosophy
               </NavLink>
             </li>

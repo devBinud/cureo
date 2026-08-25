@@ -1,13 +1,14 @@
 // src/admin/AdminLogin.jsx
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaLock, FaUser, FaCircleExclamation, FaKey, FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { FaLock, FaUser, FaCircleExclamation, FaEye, FaEyeSlash } from 'react-icons/fa6';
 import logoImg from '../cureo/logo.jpg';
 import { isAuthenticated, login } from './adminStore';
+import { loginWithFirebase } from '../firebase';
 import './admin.css';
 
 export default function AdminLogin() {
-  const [username, setUsername] = useState('admin');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
@@ -19,15 +20,24 @@ export default function AdminLogin() {
     }
   }, [navigate]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
+    // Attempt Firebase Authentication first
+    const fbRes = await loginWithFirebase(username, password);
+    if (fbRes && fbRes.success) {
+      login('admin', 'cureo2026');
+      navigate('/admin', { replace: true });
+      return;
+    }
+
+    // Fallback local check
     const res = login(username, password);
     if (res.success) {
       navigate('/admin', { replace: true });
     } else {
-      setError(res.message || 'Invalid username or password');
+      setError('Invalid username or password');
     }
   };
 
@@ -39,7 +49,7 @@ export default function AdminLogin() {
             <img src={logoImg} alt="Cureo Logo" className="admin-login-logo" />
           </div>
           <h1 className="admin-login-title">Admin Portal</h1>
-          <p className="admin-login-subtitle">Sign in to manage appointments & patient records</p>
+          <p className="admin-login-subtitle">Sign in to manage appointments</p>
         </div>
 
         {error && (
@@ -90,14 +100,9 @@ export default function AdminLogin() {
           </div>
 
           <button type="submit" className="admin-btn-primary" style={{ marginTop: '1rem' }}>
-            Sign In to Dashboard
+            Sign In
           </button>
         </form>
-
-        <div className="admin-login-hint">
-          <FaKey style={{ marginRight: '0.4rem', color: '#0ea5e9' }} />
-          Default Login: Username <code>admin</code> | Password <code>cureo2026</code>
-        </div>
       </div>
     </div>
   );
