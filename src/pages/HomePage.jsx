@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaChevronRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaCircleInfo, FaLocationDot, FaRoute, FaArrowUpRightFromSquare } from 'react-icons/fa6'
+import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaChevronRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaCircleInfo, FaLocationDot, FaRoute, FaArrowUpRightFromSquare, FaShieldHalved, FaUserGroup, FaClock } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
 import heroImg from '../assets/hero-image.png'
@@ -8,6 +8,16 @@ import doctorImg from '../assets/doctor.jpeg'
 import gallery1 from '../cureo/gallery/1.jpg'
 import gallery2 from '../cureo/gallery/2.jpg'
 import gallery3 from '../cureo/gallery/3.jpg'
+import holisticDietImg from '../assets/holistic/1.webp'
+import holisticConsultationImg from '../assets/holistic/2.webp'
+import holisticKitImg from '../assets/holistic/3.webp'
+import cureoSupport1 from '../assets/cureosupport/1.webp'
+import cureoSupport2 from '../assets/cureosupport/2.webp'
+import cureoSupport3 from '../assets/cureosupport/3.webp'
+import ctaImg from '../assets/cta.webp'
+import step1Img from '../assets/steps/screening.webp'
+import step2Img from '../assets/steps/consultation.webp'
+import step3Img from '../assets/steps/step3.webp'
 import { FadeUp, FadeHorizontal, StaggerContainer, StaggerItem } from '../components/Animated'
 
 export default function HomePage() {
@@ -124,6 +134,57 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Holistic Approach Section */}
+      <section className="holistic-approach-section">
+        <div className="holistic-container">
+          <FadeUp className="holistic-header">
+            <span className="holistic-tag">Natural Wellness Approach</span>
+            <h2 className="holistic-title">Personalised Healing Requires More Than Just Remedies</h2>
+          </FadeUp>
+
+          <StaggerContainer className="holistic-grid">
+            {/* Card 1: Personalised Kit */}
+            <StaggerItem className="holistic-card">
+              <div className="holistic-card-content">
+                <h3 className="holistic-card-title">Personalised Kit</h3>
+                <p className="holistic-card-desc">
+                  Supports natural healing from inside & out, tailored to your constitutional remedy needs.
+                </p>
+              </div>
+              <div className="holistic-card-img-wrapper">
+                <img src={holisticKitImg} alt="Personalised Kit - Cureo Homeopathy" className="holistic-card-img img-kit" />
+              </div>
+            </StaggerItem>
+
+            {/* Card 2: Diet & Lifestyle Plan */}
+            <StaggerItem className="holistic-card">
+              <div className="holistic-card-content">
+                <h3 className="holistic-card-title">Diet Plan</h3>
+                <p className="holistic-card-desc">
+                  A customized diet & wellness routine designed to complement homeopathic remedies.
+                </p>
+              </div>
+              <div className="holistic-card-img-wrapper">
+                <img src={holisticDietImg} alt="Diet & Lifestyle Plan - Cureo Homeopathy" className="holistic-card-img img-diet" />
+              </div>
+            </StaggerItem>
+
+            {/* Card 3: Expert Consultation */}
+            <StaggerItem className="holistic-card">
+              <div className="holistic-card-content">
+                <h3 className="holistic-card-title">Expert Consultation</h3>
+                <p className="holistic-card-desc">
+                  Personalised 1-on-1 guidance from Dr. Niharika Bezboruah (BHMS) at every step.
+                </p>
+              </div>
+              <div className="holistic-card-img-wrapper">
+                <img src={holisticConsultationImg} alt="Expert Consultation - Cureo Homeopathy" className="holistic-card-img img-consultation" />
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
       {/* Appointment Booking Section */}
       <section className="booking-cta-section">
         <div className="booking-cta-container">
@@ -132,7 +193,7 @@ export default function HomePage() {
               <span className="booking-tag">Prior Appointment Mandatory</span>
               <h2 className="booking-title">Ready for Personalised Homeopathic Healing?</h2>
               <p className="booking-desc">
-                Consult directly with Dr. Niharika Bezboruah (BHMS). We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns - available in-clinic at Dibrugarh and via online tele-consultation worldwide.
+                We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns - available in-clinic at Dibrugarh and via online tele-consultation worldwide.
               </p>
 
               <div className="booking-features-list">
@@ -184,7 +245,61 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Google Reviews Testimonials Section (Before Gallery) */}
+      {/* 3-Step Treatment Process Section */}
+      <section className="treatment-steps-section">
+        <div className="treatment-steps-container">
+          <FadeUp className="treatment-steps-header">
+            <span className="treatment-steps-tag">3-Step Guided Care</span>
+            <h2 className="treatment-steps-title">Your Path to Recovery in 3 Easy Steps</h2>
+          </FadeUp>
+
+          <StaggerContainer className="treatment-steps-grid">
+            {/* Step 1: Screening Test */}
+            <StaggerItem className="treatment-step-card">
+              <div className="treatment-step-card-content">
+                <span className="step-number-tag">STEP 1</span>
+                <h3 className="treatment-step-card-title">Screening Test</h3>
+                <p className="treatment-step-card-desc">
+                  Comprehensive initial case analysis & screening test to evaluate your constitutional profile.
+                </p>
+              </div>
+              <div className="treatment-step-card-img-wrapper">
+                <img src={step1Img} alt="Screening Test - Cureo Homeopathy" className="treatment-step-card-img" />
+              </div>
+            </StaggerItem>
+
+            {/* Step 2: 30-Minute Consultation */}
+            <StaggerItem className="treatment-step-card">
+              <div className="treatment-step-card-content">
+                <span className="step-number-tag">STEP 2</span>
+                <h3 className="treatment-step-card-title">30-Min Consultation</h3>
+                <p className="treatment-step-card-desc">
+                  In-depth 30-minute 1-on-1 consultation with Dr. Niharika Bezboruah (BHMS) in-clinic or online.
+                </p>
+              </div>
+              <div className="treatment-step-card-img-wrapper">
+                <img src={step2Img} alt="30-Minute Consultation - Cureo Homeopathy" className="treatment-step-card-img" />
+              </div>
+            </StaggerItem>
+
+            {/* Step 3: Follow-Up Support */}
+            <StaggerItem className="treatment-step-card">
+              <div className="treatment-step-card-content">
+                <span className="step-number-tag">STEP 3</span>
+                <h3 className="treatment-step-card-title">Follow-Up Support</h3>
+                <p className="treatment-step-card-desc">
+                  Dedicated progress tracking & support at 7 days and 15 days for continuous recovery.
+                </p>
+              </div>
+              <div className="treatment-step-card-img-wrapper">
+                <img src={step3Img} alt="Follow-Up Support 7 & 15 Days - Cureo Homeopathy" className="treatment-step-card-img" />
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Google Reviews Testimonials Section */}
       <section className="testimonials-section">
         <div className="testimonials-container">
           <FadeUp className="section-header">
@@ -288,31 +403,140 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Gallery Showcase */}
-      <section className="section">
-        <FadeUp className="section-header">
-          <span className="section-tag">Clinic Showcase</span>
-          <h2 className="section-title">Gallery</h2>
-          <p className="section-desc">A glimpse into Cureo Homeopathy Clinic and patient care environment.</p>
-        </FadeUp>
+      {/* 500+ Patients Stats Banner (Matching Traya Pill Badge Design) */}
+      <section className="stats-impact-section">
+        <div className="stats-impact-container">
+          <FadeUp className="stats-impact-content">
+            <span className="stats-impact-tag">CLINICAL IMPACT</span>
+            <h2 className="stats-impact-title">500+ Patients Treated in 8 Months</h2>
 
-        <StaggerContainer className="gallery-grid">
-          <StaggerItem className="gallery-item">
-            <img src={gallery1} alt="Cureo Clinic Showcase 1" className="gallery-img" />
-          </StaggerItem>
-          <StaggerItem className="gallery-item">
-            <img src={gallery2} alt="Cureo Clinic Showcase 2" className="gallery-img" />
-          </StaggerItem>
-          <StaggerItem className="gallery-item">
-            <img src={gallery3} alt="Cureo Clinic Showcase 3" className="gallery-img" />
-          </StaggerItem>
-        </StaggerContainer>
+            <div className="stats-pills-row">
+              <div className="traya-pill-badge">
+                <FaUserGroup size={14} className="traya-pill-icon" />
+                <span>500+ Satisfied Patients</span>
+              </div>
+              <div className="traya-pill-badge">
+                <FaStethoscope size={14} className="traya-pill-icon" />
+                <span>Skin, Piles & Digestive Care</span>
+              </div>
+              <div className="traya-pill-badge">
+                <FaClock size={14} className="traya-pill-icon" />
+                <span>Tracked for 8+ Months</span>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Cureo Complete 360° Support Section (In Between Clinical Impact & Our Healing Formula) */}
+      <section className="cureo-support-section">
+        <div className="cureo-support-container">
+          <FadeUp className="cureo-support-header">
+            <h2 className="cureo-support-title">Holistic Support Beyond Just Medication</h2>
+          </FadeUp>
+
+          <StaggerContainer className="cureo-support-grid">
+            {/* Card 1: Diet & Nutrition */}
+            <StaggerItem className="cureo-support-card">
+              <div className="cureo-support-card-content">
+                <h3 className="cureo-support-card-title">Diet & Custom Nutrition</h3>
+                <p className="cureo-support-card-desc">
+                  Personalized nutritional guidance & customized meal plans designed to complement homeopathic remedies for faster recovery.
+                </p>
+              </div>
+              <div className="cureo-support-img-wrapper">
+                <img src={cureoSupport1} alt="Diet & Custom Nutrition" className="cureo-support-card-img" />
+              </div>
+            </StaggerItem>
+
+            {/* Card 2: Habit & Lifestyle Building */}
+            <StaggerItem className="cureo-support-card">
+              <div className="cureo-support-card-content">
+                <h3 className="cureo-support-card-title">Habit & Lifestyle Building</h3>
+                <p className="cureo-support-card-desc">
+                  Guided daily health routines and lifestyle habit coaching to eliminate root-cause triggers and prevent disease recurrence.
+                </p>
+              </div>
+              <div className="cureo-support-img-wrapper">
+                <img src={cureoSupport2} alt="Habit & Lifestyle Building" className="cureo-support-card-img" />
+              </div>
+            </StaggerItem>
+
+            {/* Card 3: Continuous Doctor Support */}
+            <StaggerItem className="cureo-support-card">
+              <div className="cureo-support-card-content">
+                <h3 className="cureo-support-card-title">Continuous Doctor Support</h3>
+                <p className="cureo-support-card-desc">
+                  Dedicated 1-on-1 progress tracking and direct physician support with Dr. Niharika Bezboruah (BHMS) throughout your care.
+                </p>
+              </div>
+              <div className="cureo-support-img-wrapper">
+                <img src={cureoSupport3} alt="Continuous Doctor Support" className="cureo-support-card-img" />
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Have Questions? Traya-Style WhatsApp Card (After Holistic Support Section) */}
+      <section className="cureo-cta-banner-section">
+        <div className="cureo-cta-banner-container">
+          <FadeUp className="traya-questions-card">
+            <div className="traya-questions-text">
+              <h2 className="traya-questions-title">Have questions?</h2>
+              <p className="traya-questions-sub">
+                Our doctor is just one click away.
+              </p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="traya-chat-btn">
+                <FaWhatsapp size={18} />
+                <span>Chat with us</span>
+              </a>
+            </div>
+
+            <div className="traya-questions-image-wrapper">
+              <img src={ctaImg} alt="Dr. Niharika Bezboruah - Cureo Homeopathy" className="traya-questions-img" />
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* 3-Pillars Healing Formula Banner (Before Gallery - Matching Screenshot 2) */}
+      <section className="pillars-formula-section">
+        <div className="pillars-formula-container">
+          <FadeUp className="pillars-formula-content">
+            <span className="pillars-formula-tag">OUR HEALING FORMULA</span>
+            <h2 className="pillars-formula-title">
+              Homeopathy <span className="pillars-formula-plus">+</span> Root-Cause Analysis <span className="pillars-formula-plus">+</span> Personalised Care
+            </h2>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Gallery Showcase */}
+      <section className="gallery-section">
+        <div className="gallery-container">
+          <FadeUp className="section-header">
+            <h2 className="section-title">Gallery</h2>
+            <p className="section-desc">A glimpse into Cureo Homeopathy Clinic and patient care environment.</p>
+          </FadeUp>
+
+          <StaggerContainer className="gallery-grid">
+            <StaggerItem className="gallery-item">
+              <img src={gallery1} alt="Cureo Clinic Showcase 1" className="gallery-img" />
+            </StaggerItem>
+            <StaggerItem className="gallery-item">
+              <img src={gallery2} alt="Cureo Clinic Showcase 2" className="gallery-img" />
+            </StaggerItem>
+            <StaggerItem className="gallery-item">
+              <img src={gallery3} alt="Cureo Clinic Showcase 3" className="gallery-img" />
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
       </section>
 
       {/* Embedded Google Maps Section */}
-      <section className="section" style={{ paddingTop: '1rem', marginBottom: '3rem' }}>
+      <section className="section" style={{ paddingTop: '1rem', marginBottom: '3.5rem' }}>
         <FadeUp className="section-header">
-          <span className="section-tag">Find Us</span>
           <h2 className="section-title">Clinic Location</h2>
           <p className="section-desc">Visit Cureo Personalised Homeopathic Care in Dibrugarh, Assam.</p>
         </FadeUp>
@@ -340,6 +564,41 @@ export default function HomePage() {
             ></iframe>
           </div>
         </FadeUp>
+      </section>
+
+      {/* Disclaimers Section (After Clinic Location - Matching Traya Layout) */}
+      <section className="disclaimer-section">
+        <div className="disclaimer-container">
+          <FadeUp>
+            <h2 className="disclaimer-title">Disclaimers</h2>
+            <p className="disclaimer-intro-text">
+              All consultations, treatment plans, and homeopathic medicine kits provided by Cureo Personalised Homeopathic Care are conducted under expert medical observation and individualized constitutional guidelines.
+            </p>
+
+            <div className="disclaimer-content-block">
+              <div className="disclaimer-item">
+                <h4 className="disclaimer-item-title">Individualized Case-Based Remedies</h4>
+                <p className="disclaimer-item-desc">
+                  In classical homeopathy, every remedy is uniquely selected based on detailed individual case-taking, physical traits, health history, and root-cause symptoms. Medicines prescribed for one patient differ completely from another, even for identical clinical diagnoses or symptoms.
+                </p>
+              </div>
+
+              <div className="disclaimer-item">
+                <h4 className="disclaimer-item-title">Non-Transferable Prescriptions</h4>
+                <p className="disclaimer-item-desc">
+                  Homeopathic remedies and potency dosages prescribed to a specific individual are tailored strictly to their current constitutional profile. They should never be shared, reused, or recommended to family members or friends experiencing similar issues without formal medical evaluation.
+                </p>
+              </div>
+
+              <div className="disclaimer-item">
+                <h4 className="disclaimer-item-title">Personalised Doorstep Medicine Delivery</h4>
+                <p className="disclaimer-item-desc">
+                  Online consultations are available from the comfort of your home. After thorough evaluation, prescribed homeopathic medicines and custom remedy kits can be delivered directly to your doorstep by courier.
+                </p>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
       </section>
     </>
   )

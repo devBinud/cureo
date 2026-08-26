@@ -1201,14 +1201,14 @@ body.drawer-open .floating-widgets-stack {
 .booking-cta-section {
   width: 100%;
   max-width: 100%;
-  margin: 0 0 4.5rem 0;
+  margin: 0;
   padding: 0;
 }
 
 .booking-cta-container {
   background: linear-gradient(135deg, #063819 0%, #0b2c6b 100%);
   border-radius: 0 !important;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
   color: white;
   position: relative;
   overflow: hidden;
@@ -1373,7 +1373,7 @@ body.drawer-open .floating-widgets-stack {
 /* Google Reviews Testimonials Section (Before Gallery) */
 .testimonials-section {
   max-width: 1240px;
-  margin: 0 auto 4.5rem;
+  margin: 4.5rem auto;
   padding: 0 1.5rem;
 }
 
@@ -1482,6 +1482,10 @@ body.drawer-open .floating-widgets-stack {
 }
 
 @media (max-width: 900px) {
+  .testimonials-section {
+    margin: 3rem auto;
+  }
+
   .testimonials-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1494,6 +1498,442 @@ body.drawer-open .floating-widgets-stack {
 
   .treatment-tag {
     font-size: 0.75rem;
+  }
+}
+
+/* Clinical Impact Stats Section (Matching Screenshot 2 - Green Banner) */
+.stats-impact-section {
+  width: 100%;
+  background: linear-gradient(135deg, #093819 0%, #062B13 60%, #0b2c6b 100%);
+  padding: 3.75rem 1.5rem;
+  margin: 0;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-impact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.stats-impact-tag {
+  display: inline-block;
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #86efac;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.75rem;
+}
+
+.stats-impact-title {
+  font-size: 2.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.15rem;
+}
+
+.stats-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.traya-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  padding: 0.45rem 1.15rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+.traya-pill-icon {
+  color: #86efac;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .stats-impact-section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .stats-impact-title {
+    font-size: 1.65rem !important;
+    line-height: 1.3;
+  }
+
+  .stats-impact-tag {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .traya-pill-badge {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.85rem;
+  }
+}
+
+/* Cureo Complete 360° Support Section (In Between Clinical Impact & Our Healing Formula) */
+.cureo-support-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4.5rem 1.5rem;
+  margin: 0;
+}
+
+.cureo-support-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cureo-support-header {
+  text-align: left;
+  margin-bottom: 2.25rem;
+}
+
+.cureo-support-tag {
+  display: block;
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #0b6b4f;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+}
+
+.cureo-support-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.cureo-support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.cureo-support-card {
+  background-color: #FAF5ED;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 220px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(9, 56, 25, 0.04);
+  position: relative;
+}
+
+.cureo-support-card-content {
+  flex: 1.15;
+  padding: 1.75rem 0.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.cureo-support-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.45rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.cureo-support-card-desc {
+  font-size: 0.85rem;
+  color: #49566a;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cureo-support-img-wrapper {
+  flex: 0.85;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.cureo-support-card-img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+@media (max-width: 850px) {
+  .cureo-support-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .cureo-support-title {
+    font-size: 1.65rem !important;
+  }
+
+  .cureo-support-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem !important;
+    padding: 0.5rem 1.25rem 1.25rem !important;
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    scrollbar-width: none;
+  }
+
+  .cureo-support-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cureo-support-card {
+    flex: 0 0 84% !important;
+    min-width: 280px !important;
+    max-width: 320px !important;
+    scroll-snap-align: start;
+    height: 200px !important;
+    min-height: 200px !important;
+    padding: 0;
+  }
+
+  .cureo-support-card-content {
+    padding: 1.35rem 0.5rem 1.35rem 1.25rem;
+  }
+
+  .cureo-support-img-wrapper {
+    height: 100%;
+  }
+}
+
+/* Have Questions? Traya-Style Dark Green Gradient Banner */
+.cureo-cta-banner-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 3rem 1.5rem;
+  margin: 0;
+}
+
+.cureo-cta-banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.traya-questions-card {
+  background: linear-gradient(135deg, #093819 0%, #062B13 60%, #0b2c6b 100%);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(9, 56, 25, 0.12);
+  color: #ffffff;
+  min-height: 200px;
+}
+
+.traya-questions-text {
+  text-align: left;
+  max-width: 55%;
+  z-index: 2;
+  padding-bottom: 0;
+}
+
+.traya-questions-title {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.traya-questions-sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+  margin-bottom: 1.5rem;
+  font-weight: 450;
+}
+
+.traya-chat-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #25D366;
+  color: #ffffff !important;
+  font-size: 0.925rem;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.traya-chat-btn:hover {
+  background-color: #1eb855;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.traya-questions-image-wrapper {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.traya-questions-img {
+  max-height: 240px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .cureo-cta-banner-section {
+    padding: 2rem 1.25rem;
+  }
+
+  .traya-questions-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.25rem 1.5rem;
+    min-height: auto;
+  }
+
+  .traya-questions-text {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .traya-questions-title {
+    font-size: 1.75rem !important;
+  }
+
+  .traya-questions-sub {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.25rem;
+  }
+
+  .traya-questions-image-wrapper {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: 180px;
+    justify-content: center;
+  }
+
+  .traya-questions-img {
+    max-height: 180px;
+  }
+}
+
+/* 3-Pillar Healing Formula Section (Attached Seamlessly, No Margins or Borders) */
+.pillars-formula-section {
+  width: 100%;
+  background-color: #FAF5ED;
+  padding: 3.25rem 1.5rem;
+  margin: 0;
+  border: none;
+}
+
+.pillars-formula-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pillars-formula-content {
+  text-align: left;
+}
+
+.pillars-formula-tag {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #9B783E;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+}
+
+.pillars-formula-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #2D3748;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.pillars-formula-plus {
+  color: #786234;
+  margin: 0 0.35rem;
+  font-weight: 500;
+}
+
+.gallery-section {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 4.5rem 1.5rem;
+  margin: 0;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .pillars-formula-section {
+    padding: 2.25rem 1.25rem;
+    margin: 0;
+  }
+
+  .pillars-formula-title {
+    font-size: 1.3rem !important;
+    line-height: 1.35;
+  }
+
+  .pillars-formula-tag {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-section {
+    padding: 3rem 1.25rem;
+    margin: 0;
   }
 }
 
@@ -2332,5 +2772,543 @@ body.drawer-open .floating-widgets-stack {
 
   .clinic-map-frame-wrapper {
     height: 340px;
+  }
+}
+
+/* ==========================================
+   HOLISTIC APPROACH SECTION (Traya Inspired UI)
+   ========================================== */
+.holistic-approach-section {
+  padding: 4.5rem 1.5rem;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.holistic-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.holistic-header {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.holistic-tag {
+  color: #0b6b4f;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.holistic-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+
+.holistic-desc {
+  font-size: 1.025rem;
+  color: #49566a;
+  max-width: 760px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.holistic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.holistic-card {
+  background-color: #FAF6E8 !important;
+  border-radius: 20px;
+  padding: 1.5rem 0 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none !important;
+  border: none !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.holistic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07) !important;
+}
+
+.holistic-card-content {
+  flex: 1.15;
+  z-index: 2;
+  position: relative;
+  padding-right: 0.5rem;
+  padding-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.holistic-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+  line-height: 1.25;
+}
+
+.holistic-card-desc {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 450;
+}
+
+.holistic-card-img-wrapper {
+  flex: 0.85;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.holistic-card-img {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+.holistic-card-img.img-kit {
+  height: 95%;
+  object-position: bottom right;
+}
+
+.holistic-card-img.img-consultation {
+  height: 100%;
+  object-position: bottom right;
+}
+
+.holistic-card-img.img-diet {
+  height: 95%;
+  object-position: bottom right;
+}
+
+/* Responsive adjustments for Holistic Section */
+@media (max-width: 1100px) {
+  .holistic-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .holistic-card {
+    height: 210px;
+    min-height: 210px;
+    padding: 1.25rem 0 0 1.25rem;
+  }
+
+  .holistic-card-title {
+    font-size: 1.15rem;
+  }
+
+  .holistic-card-desc {
+    font-size: 0.8rem;
+    line-height: 1.38;
+  }
+}
+
+@media (max-width: 850px) {
+  .holistic-approach-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .holistic-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem !important;
+    padding: 0.5rem 1.25rem 1.25rem !important;
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    scrollbar-width: none;
+  }
+
+  .holistic-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .holistic-card {
+    flex: 0 0 84% !important;
+    min-width: 280px !important;
+    max-width: 320px !important;
+    scroll-snap-align: start;
+    height: 200px !important;
+    min-height: 200px !important;
+    padding: 1.25rem 0 0 1.25rem;
+  }
+
+  .holistic-title {
+    font-size: 1.65rem !important;
+  }
+
+  .holistic-header {
+    text-align: left;
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* ==========================================
+   3-STEP TREATMENT PROCESS SECTION STYLING (Traya Inspired UI)
+   ========================================== */
+.treatment-steps-section {
+  padding: 3rem 1.5rem 3.5rem;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.treatment-steps-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.treatment-steps-header {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.treatment-steps-tag {
+  color: #0b6b4f;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.treatment-steps-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+
+.treatment-steps-desc {
+  font-size: 1.025rem;
+  color: #49566a;
+  max-width: 760px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.treatment-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.treatment-step-card {
+  background-color: #FAF6E8 !important;
+  border-radius: 20px;
+  padding: 1.5rem 0 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none !important;
+  border: none !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.treatment-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07) !important;
+}
+
+.treatment-step-card-content {
+  flex: 1.15;
+  z-index: 2;
+  position: relative;
+  padding-right: 0.5rem;
+  padding-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.step-number-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0b6b4f;
+  background-color: #E2F2E9;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.treatment-step-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+  line-height: 1.25;
+}
+
+.treatment-step-card-desc {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 450;
+}
+
+.treatment-step-card-img-wrapper {
+  flex: 0.85;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.treatment-step-card-img {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .treatment-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .treatment-step-card {
+    height: 210px;
+    min-height: 210px;
+    padding: 1.25rem 0 0 1.25rem;
+  }
+
+  .treatment-step-card-title {
+    font-size: 1.15rem;
+  }
+
+  .treatment-step-card-desc {
+    font-size: 0.8rem;
+    line-height: 1.38;
+  }
+}
+
+@media (max-width: 850px) {
+  .treatment-steps-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .treatment-steps-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem !important;
+    padding: 0.5rem 1.25rem 1.25rem !important;
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    scrollbar-width: none;
+  }
+
+  .treatment-steps-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .treatment-step-card {
+    flex: 0 0 84% !important;
+    min-width: 280px !important;
+    max-width: 320px !important;
+    scroll-snap-align: start;
+    height: 200px !important;
+    min-height: 200px !important;
+    padding: 1.25rem 0 0 1.25rem;
+  }
+
+  .treatment-steps-title {
+    font-size: 1.65rem !important;
+  }
+
+  .treatment-steps-header {
+    text-align: left;
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* ==========================================
+   GALLERY SHOWCASE SECTION (Pure White, Framed 5px Padding & No Border Radius)
+   ========================================== */
+.gallery-section {
+  background-color: #ffffff !important;
+  padding: 3.5rem 1.5rem 4rem;
+  width: 100%;
+}
+
+.gallery-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  border-radius: 0 !important;
+  overflow: hidden;
+  box-shadow: none !important;
+  border: 1px solid #e2ece4;
+  padding: 5px;
+  background-color: #ffffff;
+  transition: none !important;
+}
+
+.gallery-item:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #e2ece4 !important;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 !important;
+}
+
+@media (max-width: 850px) {
+  .gallery-section {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gallery-img {
+    height: 230px;
+  }
+}
+
+/* Disclaimers Section (Matching Former Section Alignment with #FAF5ED background) */
+.disclaimer-section {
+  width: 100%;
+  background-color: #FAF5ED;
+  padding: 4rem 1.5rem 4.5rem;
+  margin: 0;
+  border: none;
+}
+
+.disclaimer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.disclaimer-title {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #2D3748;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.disclaimer-intro-text {
+  font-size: 0.95rem;
+  color: #4A5568;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.disclaimer-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.65rem;
+}
+
+.disclaimer-item {
+  text-align: left;
+}
+
+.disclaimer-item-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2D3748;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.disclaimer-item-desc {
+  font-size: 0.925rem;
+  color: #4A5568;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .disclaimer-section {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .disclaimer-title {
+    font-size: 1.5rem !important;
+  }
+
+  .disclaimer-item-title {
+    font-size: 0.975rem !important;
+  }
+
+  .disclaimer-item-desc,
+  .disclaimer-intro-text {
+    font-size: 0.875rem !important;
   }
 }
