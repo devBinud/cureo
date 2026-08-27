@@ -30,13 +30,29 @@ export default function AppointmentPage() {
     concern: 'Skin Concerns',
     mode: 'In-Clinic Consultation',
     preferredDate: '',
-    timeSlot: 'Morning (10:00 AM - 1:00 PM)',
+    timeSlot: '3:00 PM - 4:00 PM',
     notes: ''
   })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    if (name === 'mode') {
+      if (value === 'Online Consultation') {
+        setFormData((prev) => ({
+          ...prev,
+          mode: value,
+          timeSlot: 'Flexible Schedule (Online Tele-consultation)'
+        }));
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          mode: value,
+          timeSlot: prev.timeSlot.includes('Flexible Schedule') ? '3:00 PM - 4:00 PM' : prev.timeSlot
+        }));
+      }
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: false }));
     }
@@ -54,8 +70,8 @@ export default function AppointmentPage() {
         const month = parseInt(parts[1], 10) - 1;
         const day = parseInt(parts[2], 10);
         const selectedDate = new Date(year, month, day);
-        if (selectedDate.getDay() === 0) { // 0 = Sunday
-          setDateError('Sundays are clinic holidays. Please select Monday to Saturday.');
+        if (selectedDate.getDay() === 6) { // 6 = Saturday (OFF)
+          setDateError('Saturdays are clinic holidays. Clinic hours are 3:00 PM – 7:00 PM (Sunday to Friday).');
           setFormData((prev) => ({ ...prev, preferredDate: '' }));
           return;
         }
@@ -123,7 +139,7 @@ export default function AppointmentPage() {
       concern: 'Skin Concerns',
       mode: 'In-Clinic Consultation',
       preferredDate: '',
-      timeSlot: 'Morning (10:00 AM - 1:00 PM)',
+      timeSlot: '3:00 PM - 4:00 PM',
       notes: ''
     });
     setErrors({});
@@ -194,7 +210,7 @@ export default function AppointmentPage() {
             <>
               <div className="appointment-amber-banner">
                 <span>
-                  Online consultations are available from the comfort of your home. After consultation, prescribed medicine & remedy kits can be delivered to your doorstep by courier.
+                  <strong>Clinic Hours: 3:00 PM – 7:00 PM (Sunday to Friday, Saturday OFF).</strong> Online tele-consultations are arranged flexibly with medicine delivery across India.
                 </span>
               </div>
 
@@ -344,7 +360,7 @@ export default function AppointmentPage() {
 
                   <div className="form-group">
                     <label htmlFor="preferredDate">
-                      Preferred Appointment Date <span style={{ color: '#dc2626', fontWeight: 700 }}>*</span> <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 500 }}>(Mon – Sat)</span>
+                      Preferred Appointment Date <span style={{ color: '#dc2626', fontWeight: 700 }}>*</span> <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 500 }}>(Sun – Fri, Sat OFF)</span>
                     </label>
                     <input
                       type="date"
@@ -368,19 +384,28 @@ export default function AppointmentPage() {
                     <label htmlFor="timeSlot">
                       Preferred Time Slot <span style={{ color: '#dc2626', fontWeight: 700 }}>*</span>
                     </label>
-                    <select
-                      id="timeSlot"
-                      name="timeSlot"
-                      className="form-select"
-                      style={errors.timeSlot ? { borderColor: '#dc2626', backgroundColor: '#fff5f5' } : {}}
-                      value={formData.timeSlot}
-                      onChange={handleChange}
-                      required
-                    >
-                      <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
-                      <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
-                      <option value="Evening (5:00 PM - 8:00 PM)">Evening (5:00 PM - 8:00 PM)</option>
-                    </select>
+                    {formData.mode === 'Online Consultation' ? (
+                      <div style={{ padding: '0.75rem 1rem', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '12px', color: '#166534', fontSize: '0.825rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <FaClock size={16} style={{ color: '#16a34a', flexShrink: 0 }} />
+                        <span>Online Tele-consultations are arranged flexibly. Dr. Niharika will contact you over WhatsApp to align a convenient time.</span>
+                      </div>
+                    ) : (
+                      <select
+                        id="timeSlot"
+                        name="timeSlot"
+                        className="form-select"
+                        style={errors.timeSlot ? { borderColor: '#dc2626', backgroundColor: '#fff5f5' } : {}}
+                        value={formData.timeSlot}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                        <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+                        <option value="5:00 PM - 6:00 PM">5:00 PM - 6:00 PM</option>
+                        <option value="6:00 PM - 7:00 PM">6:00 PM - 7:00 PM</option>
+                        <option value="Flexible / Walk-in (3:00 PM - 7:00 PM)">Flexible / Walk-in (3:00 PM - 7:00 PM)</option>
+                      </select>
+                    )}
                   </div>
 
                   <div className="form-group full-width">

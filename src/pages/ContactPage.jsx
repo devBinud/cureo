@@ -59,7 +59,7 @@ export default function ContactPage() {
             <p>Lab collection centre, near Dr Lal path, opposite Honda dealer, Naliapool, Dibrugarh, Assam 786001</p>
           </div>
           <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-directions-map">
-            <FaRoute /> Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
+            Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
           </a>
         </div>
         <div className="clinic-map-frame-wrapper">

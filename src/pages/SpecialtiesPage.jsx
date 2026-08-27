@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
-import { FaStethoscope, FaCalendarCheck, FaCircleInfo } from 'react-icons/fa6'
+import { FaStethoscope, FaCircleInfo } from 'react-icons/fa6'
 import { FadeUp, StaggerContainer, StaggerItem } from '../components/Animated'
 
 export default function SpecialtiesPage() {
@@ -28,7 +28,7 @@ export default function SpecialtiesPage() {
             Comprehensive treatment for persistent dermatological problems including chronic eczema, psoriasis, recurrent allergic rashes, urticaria, and acne. Homeopathy addresses internal systemic imbalances to clear skin naturally.
           </p>
           <Link to="/appointment" className="btn-hero-primary" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>
-            <FaCalendarCheck /> <span>Book Appointment Now</span>
+            <span>Book Appointment Now</span>
           </Link>
         </StaggerItem>
 
@@ -41,7 +41,7 @@ export default function SpecialtiesPage() {
             Non-surgical homeopathic management for internal/external piles, anal fissures, chronic constipation, bleeding, and rectal discomfort. Safe, gentle remedies aimed at root-cause bowel regulation.
           </p>
           <Link to="/appointment" className="btn-hero-primary" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>
-            <FaCalendarCheck /> <span>Book Appointment Now</span>
+            <span>Book Appointment Now</span>
           </Link>
         </StaggerItem>
 
@@ -54,7 +54,7 @@ export default function SpecialtiesPage() {
             Holistic care for chronic indigestion, hyperacidity, IBS, bloating, and lifestyle-induced digestive issues. Focuses on restoring natural digestive rhythm and gut flora balance.
           </p>
           <Link to="/appointment" className="btn-hero-primary" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>
-            <FaCalendarCheck /> <span>Book Appointment Now</span>
+            <span>Book Appointment Now</span>
           </Link>
         </StaggerItem>
       </StaggerContainer>

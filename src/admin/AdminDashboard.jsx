@@ -35,10 +35,9 @@ export default function AdminDashboard() {
     phone: '+91 70029 74378',
     whatsapp: '+91 70029 74378',
     email: 'contact@cureoclinic.com',
-    address: 'Near HS Road, Dibrugarh, Assam - 786001',
-    morningSlot: '10:00 AM - 01:00 PM',
-    afternoonSlot: '02:00 PM - 05:00 PM',
-    eveningSlot: '05:00 PM - 08:00 PM',
+    address: 'Naliapool, Dibrugarh, Assam - 786001',
+    clinicTiming: '3:00 PM - 7:00 PM (Sun - Fri, Sat OFF)',
+    clinicSlot: '3:00 PM - 7:00 PM',
     autoWhatsapp: true,
     emailNotify: true
   });

@@ -1,23 +1,23 @@
 import { Link } from 'react-router-dom'
-import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaChevronRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaCircleInfo, FaLocationDot, FaRoute, FaArrowUpRightFromSquare, FaShieldHalved, FaUserGroup, FaClock } from 'react-icons/fa6'
+import { FaCalendarCheck, FaStethoscope, FaArrowRight, FaChevronRight, FaPhone, FaWhatsapp, FaStar, FaGlobe, FaCircleInfo, FaLocationDot, FaRoute, FaArrowUpRightFromSquare, FaShieldHalved, FaUserGroup, FaClock, FaLeaf, FaUserDoctor } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
 import { GiSparkles, GiStomach } from 'react-icons/gi'
 import heroImg from '../assets/hero-image.png'
-import heroImgMobile from '../assets/hero-image-mobile.png'
 import doctorImg from '../assets/doctor.jpeg'
+import coverImg from '../cureo/cover.jpg'
 import gallery1 from '../cureo/gallery/1.jpg'
 import gallery2 from '../cureo/gallery/2.jpg'
 import gallery3 from '../cureo/gallery/3.jpg'
-import holisticDietImg from '../assets/holistic/1.webp'
-import holisticConsultationImg from '../assets/holistic/2.webp'
-import holisticKitImg from '../assets/holistic/3.webp'
-import cureoSupport1 from '../assets/cureosupport/1.webp'
-import cureoSupport2 from '../assets/cureosupport/2.webp'
-import cureoSupport3 from '../assets/cureosupport/3.webp'
-import ctaImg from '../assets/cta.webp'
-import step1Img from '../assets/steps/screening.webp'
-import step2Img from '../assets/steps/consultation.webp'
-import step3Img from '../assets/steps/step3.webp'
+import holisticDietImg from '../assets/holistic/dietplan.png'
+import holisticConsultationImg from '../assets/cureosupport/support.png'
+import holisticKitImg from '../assets/holistic/personalized_kit.png'
+import cureoSupport1 from '../assets/cureosupport/dietplan.png'
+import cureoSupport2 from '../assets/cureosupport/habit.png'
+import cureoSupport3 from '../assets/cureosupport/support.png'
+import ctaImg from '../assets/cta.png'
+import step1Img from '../assets/steps/screening.png'
+import step2Img from '../assets/steps/consultation.png'
+import step3Img from '../assets/steps/support.png'
 import { FadeUp, FadeHorizontal, StaggerContainer, StaggerItem } from '../components/Animated'
 
 export default function HomePage() {
@@ -31,7 +31,7 @@ export default function HomePage() {
       <section className="hero-full-section">
         {/* Mobile Top Image Banner (visible on mobile screens) */}
         <div className="hero-mobile-image-banner">
-          <img src={heroImgMobile} alt="Dr. Niharika Bezboruah - Cureo Clinic" className="hero-mobile-img" />
+          <img src={coverImg} alt="Dr. Niharika Bezboruah - Cureo Personalised Homoeopathic Kit" className="hero-mobile-img" />
           <div className="hero-mobile-img-overlay"></div>
         </div>
 
@@ -39,27 +39,36 @@ export default function HomePage() {
           <div className="hero-gradient-overlay"></div>
 
           <div className="hero-content-wrapper">
-            <FadeUp className="hero-text-block">
-              <h1 className="hero-main-title">
-                <span className="hero-title-blue">Personalized Healing</span><br />
-                <span className="hero-title-green">Your Health Matters</span>
-              </h1>
+            <div className="hero-grid-layout">
+              <FadeUp className="hero-text-block">
+                <h1 className="hero-main-title">
+                  <span className="hero-title-blue">Personalized Healing</span><br />
+                  <span className="hero-title-green">Your Health Matters</span>
+                </h1>
 
-              <p className="hero-banner-desc">
-                Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - available in-clinic and worldwide online.
-              </p>
+                <p className="hero-banner-desc">
+                  Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - available in-clinic and worldwide online.
+                </p>
 
-              <div className="hero-banner-buttons">
-                <Link to="/appointment" className="btn-hero-primary">
-                  <span>Book An Appointment</span>
-                </Link>
-              </div>
-            </FadeUp>
+                <div className="hero-banner-buttons">
+                  <Link to="/appointment" className="btn-hero-primary">
+                    <span>Book An Appointment</span>
+                  </Link>
+                </div>
+              </FadeUp>
+
+              {/* Right Side Cover Banner Image (src/cureo/cover.jpg) */}
+              <FadeHorizontal direction="right" className="hero-right-card-wrapper">
+                <div className="hero-cover-card">
+                  <img src={coverImg} alt="Dr. Niharika Bezboruah - Cureo Personalised Homoeopathic Kit" className="hero-cover-img" />
+                </div>
+              </FadeHorizontal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3-Column Specialty Action Bar */}
+      {/* 4-Column Specialty Action Bar */}
       <section className="quick-action-bar-wrapper">
         <StaggerContainer className="quick-action-bar-container">
           <div className="quick-action-top-banner">
@@ -83,6 +92,13 @@ export default function HomePage() {
             <Link to="/specialties" className="action-bar-item">
               <div className="action-bar-icon"><GiSparkles size={24} /></div>
               <span className="action-bar-title">Skin Concerns</span>
+            </Link>
+          </StaggerItem>
+
+          <StaggerItem style={{ flex: 1 }}>
+            <Link to="/specialties" className="action-bar-item">
+              <div className="action-bar-icon"><FaUserDoctor size={24} /></div>
+              <span className="action-bar-title">Post Consultation Support</span>
             </Link>
           </StaggerItem>
         </StaggerContainer>
@@ -126,7 +142,7 @@ export default function HomePage() {
               <div className="doctor-quote-box">
                 <span className="quote-mark">“</span>
                 <p className="doctor-quote-text">
-                  At Cureo Clinic, we are deeply committed to empowering every patient with individualized, constitutional homeopathic care that restores natural vitality and long-term health. Our mission is to deliver compassionate, root-cause healing tailored to your unique wellness journey...
+                  At Cureo Clinic, we are deeply committed to empowering every patient with individualized, constitutional homeopathic care that restores natural vitality and long-term health. Our mission is to deliver compassionate, root-cause healing tailored to your unique wellness journey.
                 </p>
               </div>
             </FadeHorizontal>
@@ -190,7 +206,6 @@ export default function HomePage() {
         <div className="booking-cta-container">
           <FadeUp className="booking-cta-content">
             <div className="booking-cta-text">
-              <span className="booking-tag">Prior Appointment Mandatory</span>
               <h2 className="booking-title">Ready for Personalised Homeopathic Healing?</h2>
               <p className="booking-desc">
                 We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns - available in-clinic at Dibrugarh and via online tele-consultation worldwide.
@@ -485,7 +500,7 @@ export default function HomePage() {
             <div className="traya-questions-text">
               <h2 className="traya-questions-title">Have questions?</h2>
               <p className="traya-questions-sub">
-                Our doctor is just one click away.
+                Get personalised guidance and take the first step towards better health
               </p>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="traya-chat-btn">
                 <FaWhatsapp size={18} />
@@ -548,7 +563,7 @@ export default function HomePage() {
               <p>Lab collection centre, near Dr Lal path, opposite Honda dealer, Naliapool, Dibrugarh, Assam 786001</p>
             </div>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-directions-map">
-              <FaRoute /> Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
+              Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
             </a>
           </div>
           <div className="clinic-map-frame-wrapper">
