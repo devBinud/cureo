@@ -210,7 +210,7 @@ export default function AppointmentPage() {
             <>
               <div className="appointment-amber-banner">
                 <span>
-                  <strong>Clinic Hours: 3:00 PM – 7:00 PM (Sunday to Friday, Saturday OFF).</strong> Online tele-consultations are arranged flexibly with medicine delivery across India.
+                  <strong>Clinic Hours: 3:00 PM – 7:00 PM (Sunday to Friday, Saturday OFF)</strong>
                 </span>
               </div>
 
@@ -387,7 +387,7 @@ export default function AppointmentPage() {
                     {formData.mode === 'Online Consultation' ? (
                       <div style={{ padding: '0.75rem 1rem', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '12px', color: '#166534', fontSize: '0.825rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <FaClock size={16} style={{ color: '#16a34a', flexShrink: 0 }} />
-                        <span>Online Tele-consultations are arranged flexibly. Dr. Niharika will contact you over WhatsApp to align a convenient time.</span>
+                        <span>Online Tele-consultations are arranged flexibly. We will contact you over WhatsApp to align a convenient time.</span>
                       </div>
                     ) : (
                       <select

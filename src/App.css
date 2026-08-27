@@ -1385,7 +1385,6 @@ body.drawer-open .floating-widgets-stack {
   box-shadow: var(--shadow-sm);
   transition: var(--transition-normal);
   background-color: var(--bg-card);
-  aspect-ratio: 4 / 3;
 }
 
 .gallery-item:hover {
@@ -3477,6 +3476,10 @@ body.drawer-open .floating-widgets-stack {
   padding: 5px;
   background-color: #ffffff;
   transition: none !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-item:hover {
@@ -3487,13 +3490,29 @@ body.drawer-open .floating-widgets-stack {
 
 .gallery-img {
   width: 100%;
-  height: 280px;
+  height: 270px;
   object-fit: cover;
   display: block;
   border-radius: 0 !important;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .gallery-item {
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+
+  .gallery-img {
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 640px) {
   .gallery-section {
     padding: 2.5rem 1.25rem 3rem;
   }
@@ -3504,7 +3523,7 @@ body.drawer-open .floating-widgets-stack {
   }
 
   .gallery-img {
-    height: 230px;
+    height: 220px !important;
   }
 }
 

@@ -63,14 +63,11 @@ export default function Navbar() {
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="WhatsApp">
               <FaWhatsapp size={15} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="Instagram">
+            <a href="https://www.instagram.com/cureohomeopathy" target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="Instagram">
               <FaInstagram size={15} />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="Facebook">
+            <a href="https://www.facebook.com/healthwithdrniharika" target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="Facebook">
               <FaFacebookF size={14} />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="topbar-social-item" title="YouTube">
-              <FaYoutube size={15} />
             </a>
           </div>
         </div>

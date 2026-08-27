@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaWhatsapp, FaLocationDot } from 'react-icons/fa6'
+import { FaWhatsapp, FaLocationDot, FaInstagram, FaFacebookF } from 'react-icons/fa6'
 
 export default function Footer() {
   return (
@@ -11,6 +11,37 @@ export default function Footer() {
           <p style={{ fontSize: '0.85rem', color: '#BDB9A2' }}>
             Dedicated to root-cause healing and individualized homeopathic consultation.
           </p>
+
+          <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 600 }}>Connect:</span>
+            <a
+              href="https://www.instagram.com/cureohomeopathy"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ width: '34px', height: '34px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', transition: 'background 0.3s ease' }}
+              title="Instagram"
+            >
+              <FaInstagram size={16} />
+            </a>
+            <a
+              href="https://www.facebook.com/healthwithdrniharika"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ width: '34px', height: '34px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', transition: 'background 0.3s ease' }}
+              title="Facebook"
+            >
+              <FaFacebookF size={15} />
+            </a>
+            <a
+              href="https://wa.me/917002974378"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ width: '34px', height: '34px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', transition: 'background 0.3s ease' }}
+              title="WhatsApp"
+            >
+              <FaWhatsapp size={16} />
+            </a>
+          </div>
         </div>
 
         <div className="footer-col">
