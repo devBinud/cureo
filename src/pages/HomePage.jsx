@@ -98,7 +98,7 @@ export default function HomePage() {
           <StaggerItem style={{ flex: 1 }}>
             <Link to="/specialties" className="action-bar-item">
               <div className="action-bar-icon"><FaUserDoctor size={24} /></div>
-              <span className="action-bar-title">Post Consultation Support</span>
+              <span className="action-bar-title">Follow up Support</span>
             </Link>
           </StaggerItem>
         </StaggerContainer>
