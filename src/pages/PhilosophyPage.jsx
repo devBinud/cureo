@@ -23,13 +23,13 @@ export default function PhilosophyPage() {
     },
     {
       question: "Is a prior appointment mandatory for consultation?",
-      assamese: "হাঁ, সুশৃঙ্খল ৰোগী সেৱা আৰু প্ৰত্যেকজন ৰোগীক সময় দি কেছ-টেকিং কৰাৰ বাবে পূৰ্ব নিৰ্ধাৰিত অপইণ্টমেণ্ট থকাটো জৰুৰী। অনলাইন আৰু ক্লিনিক দুয়োবিধ সেৱা উপলব্ধ।",
-      english: "Yes, prior appointment is mandatory to ensure dedicated consultation time and unhurried constitutional case-taking for every patient. Both in-clinic and online tele-consultations are available."
+      assamese: "হাঁ, সুশৃঙ্খল ৰোগী সেৱা আৰু প্ৰত্যেকজন ৰোগীক সময় দি কেছ-টেকিং কৰাৰ বাবে পূৰ্ব নিৰ্ধাৰিত অপইণ্টমেণ্ট থকাটো জৰুৰী। অনলাইন আৰু ইন-পাৰ্চন (In-person) দুয়োবিধ সেৱা উপলব্ধ।",
+      english: "Yes, prior appointment is mandatory to ensure dedicated consultation time and unhurried constitutional case-taking for every patient. Both in-person and online tele-consultations are available."
     },
     {
-      question: "What main clinical conditions are treated at Cureo Clinic?",
-      assamese: "আমাৰ ক্লিনিকত মূখ্যতঃ চালৰ সমস্যা (Skin Concerns & Allergies), অৰ্শ/গেছ/পাইলোন প্ৰব্লেম (Piles & Anorectal Care), আৰু হজমী ক্ৰিয়াৰ সমস্যা (Digestive & Bowel Health)ৰ বিশেষ চিকিৎসা প্ৰদান কৰা হয়।",
-      english: "At Cureo Clinic, we specialize in gentle, root-cause management for Piles & Anorectal concerns, Digestive & Bowel health issues, and chronic Skin conditions & Allergies."
+      question: "What main health conditions are treated at Cureo Personalised Homeopathic Care?",
+      assamese: "আমাৰ ইয়াত মূখ্যতঃ চালৰ সমস্যা (Skin Concerns & Allergies), অৰ্শ/গেছ/পাইলোন প্ৰব্লেম (Piles & Anorectal Care), আৰু হজমী ক্ৰিয়াৰ সমস্যা (Digestive & Bowel Health)ৰ বিশেষ চিকিৎসা প্ৰদান কৰা হয়।",
+      english: "At Cureo Personalised Homeopathic Care, we specialize in gentle, root-cause management for Piles & Anorectal concerns, Digestive & Bowel health issues, and chronic Skin conditions & Allergies."
     },
     {
       question: "Is online consultation available for global patients, and are medicine kits delivered via courier?",

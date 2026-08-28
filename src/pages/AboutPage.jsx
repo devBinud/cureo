@@ -27,17 +27,17 @@ export default function AboutPage() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <FaLocationDot size={20} style={{ color: 'var(--primary)' }} />
-              <span><strong>Clinic Location:</strong> Dibrugarh, Assam, India - 786001</span>
+              <span><strong>Location:</strong> Dibrugarh, Assam, India - 786001</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <FaGlobe size={20} style={{ color: 'var(--primary)' }} />
-              <span><strong>Consultation Modes:</strong> In-Clinic (Dibrugarh) & Worldwide Tele-Consultation</span>
+              <span><strong>Consultation Modes:</strong> In-Person (Dibrugarh) & Worldwide Tele-Consultation</span>
             </div>
           </div>
         </FadeHorizontal>
 
         <FadeHorizontal direction="right" className="hero-image-wrapper">
-          <img src={coverImg} alt="Dr. Niharika Bezboruah Clinic Cover" className="hero-cover-img" />
+          <img src={coverImg} alt="Dr. Niharika Bezboruah Cureo Cover" className="hero-cover-img" />
         </FadeHorizontal>
       </div>
     </div>

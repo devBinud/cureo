@@ -7,7 +7,7 @@ export default function SpecialtiesPage() {
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
       <FadeUp className="section-header">
-        <span className="section-tag">Clinical Focus</span>
+        <span className="section-tag">Care Focus & Specialties</span>
         <h2 className="section-title">Specialized Homeopathic Care</h2>
         <p className="section-desc">Targeted, gentle, and constitutional care for chronic recurring concerns.</p>
 

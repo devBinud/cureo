@@ -30,12 +30,12 @@ export default function AdminDashboard() {
   // Settings State & Alert
   const [settingsSaved, setSettingsSaved] = useState(false);
   const [clinicSettings, setClinicSettings] = useState({
-    clinicName: 'Cureo Homeopathic Clinic',
+    clinicName: 'Cureo Personalised Homeopathic Care',
     doctorName: 'Dr. Niharika Bezboruah (BHMS)',
     phone: '+91 70029 74378',
     whatsapp: '+91 70029 74378',
     email: 'contact@cureoclinic.com',
-    address: 'Naliapool, Dibrugarh, Assam - 786001',
+    address: 'Naliapool, near Dr Lal path, opposite Honda dealer, Dibrugarh, Assam 786001',
     clinicTiming: '3:00 PM - 7:00 PM (Sun - Fri, Sat OFF)',
     clinicSlot: '3:00 PM - 7:00 PM',
     autoWhatsapp: true,
@@ -481,7 +481,7 @@ export default function AdminDashboard() {
                             <FaPhone /> Call
                           </a>
                           <a
-                            href={`https://wa.me/${formatCleanPhone(pat.phone)}?text=${encodeURIComponent(`Hello ${pat.patientName}, this is Dr. Niharika Bezboruah from Cureo Homeopathic Clinic.`)}`}
+                            href={`https://wa.me/${formatCleanPhone(pat.phone)}?text=${encodeURIComponent(`Hello ${pat.patientName}, this is Dr. Niharika Bezboruah from Cureo Personalised Homeopathic Care.`)}`}
                             target="_blank"
                             rel="noreferrer"
                             className="table-btn-pill whatsapp"
@@ -680,7 +680,7 @@ export default function AdminDashboard() {
                   <FaPhone /> Call Patient
                 </a>
                 <a
-                  href={`https://wa.me/${formatCleanPhone(selectedAppointment.phone)}?text=${encodeURIComponent(`Hello ${selectedAppointment.patientName}, this is Cureo Homeopathic Clinic regarding your appointment request (${selectedAppointment.id}).`)}`}
+                  href={`https://wa.me/${formatCleanPhone(selectedAppointment.phone)}?text=${encodeURIComponent(`Hello ${selectedAppointment.patientName}, this is Cureo Personalised Homeopathic Care regarding your appointment request (${selectedAppointment.id}).`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-whatsapp"

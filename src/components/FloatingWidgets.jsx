@@ -77,12 +77,12 @@ export default function FloatingWidgets() {
       <a 
         href={phoneUrl} 
         className="floating-btn call-btn" 
-        title="Call Clinic (+91 70029 74378)"
-        aria-label="Call Clinic"
+        title="Call Us (+91 70029 74378)"
+        aria-label="Call Us"
       >
         <FaPhone size={18} />
-        <span className="btn-mobile-label">Call Clinic</span>
-        <span className="tooltip-text">Call Clinic</span>
+        <span className="btn-mobile-label">Call Us</span>
+        <span className="tooltip-text">Call Us</span>
       </a>
 
       {/* Floating WhatsApp Button */}

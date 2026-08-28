@@ -23,7 +23,7 @@ import { FadeUp, FadeHorizontal, StaggerContainer, StaggerItem } from '../compon
 export default function HomePage() {
   const whatsappNumber = "917002974378";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Dr. Niharika Bezboruah, I would like to book a homeopathy consultation.")}`;
-  const googleMapsUrl = "https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z";
+  const googleMapsUrl = "https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z/data=!3m1!4b1!4m6!3m5!1s0x3740992dc75e4b9f:0x86f74470d0b8ca74!8m2!3d27.4839343!4d94.9237945!16s%2Fg%2F11y1ypst5k";
 
   return (
     <>
@@ -47,7 +47,7 @@ export default function HomePage() {
                 </h1>
 
                 <p className="hero-banner-desc">
-                  Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - available in-clinic and worldwide online.
+                  Advanced homeopathic care, expert doctor consultations, and compassionate constitutional healing - available in-person and worldwide online.
                 </p>
 
                 <div className="hero-banner-buttons">
@@ -113,7 +113,7 @@ export default function HomePage() {
               <span className="about-tag">ABOUT US</span>
               <h2 className="about-title">Trusted Care.<br />World-Class Expertise.</h2>
               <p className="about-desc">
-                At Cureo Homeopathy Clinic, we are committed to providing gentle, high-quality, and personalized homeopathic healthcare. With expert consultation led by Dr. Niharika Bezboruah (BHMS) and individualized constitutional care, we ensure the best long-term wellness for every patient globally and locally
+                At Cureo Personalised Homeopathic Care, we are committed to providing gentle, high-quality, and personalized homeopathic healthcare. With expert consultation led by Dr. Niharika Bezboruah (BHMS) and individualized constitutional care, we ensure the best long-term wellness for every patient globally and locally
               </p>
 
               <div style={{ margin: '1rem 0 1.5rem', padding: '0.75rem 1rem', background: '#fffbeb', borderRadius: '10px', fontSize: '0.835rem', color: '#78350f', display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -142,7 +142,7 @@ export default function HomePage() {
               <div className="doctor-quote-box">
                 <span className="quote-mark">“</span>
                 <p className="doctor-quote-text">
-                  At Cureo Clinic, we are deeply committed to empowering every patient with individualized, constitutional homeopathic care that restores natural vitality and long-term health. Our mission is to deliver compassionate, root-cause healing tailored to your unique wellness journey.
+                  At Cureo Personalised Homeopathic Care, we are deeply committed to empowering every patient with individualized, constitutional homeopathic care that restores natural vitality and long-term health. Our mission is to deliver compassionate, root-cause healing tailored to your unique wellness journey.
                 </p>
               </div>
             </FadeHorizontal>
@@ -208,13 +208,13 @@ export default function HomePage() {
             <div className="booking-cta-text">
               <h2 className="booking-title">Ready for Personalised Homeopathic Healing?</h2>
               <p className="booking-desc">
-                We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns - available in-clinic at Dibrugarh and via online tele-consultation worldwide.
+                We provide gentle, root-cause healing for Skin, Piles, and Digestive concerns - available in-person at Dibrugarh and via online tele-consultation worldwide.
               </p>
 
               <div className="booking-features-list">
                 <div className="booking-feature-item">
                   <span className="feature-check">✓</span>
-                  <span>In-Clinic & Global Online Tele-Consultations</span>
+                  <span>In-Person & Global Online Tele-Consultations</span>
                 </div>
                 <div className="booking-feature-item">
                   <span className="feature-check">✓</span>
@@ -289,7 +289,7 @@ export default function HomePage() {
                 <span className="step-number-tag">STEP 2</span>
                 <h3 className="treatment-step-card-title">30-Min Consultation</h3>
                 <p className="treatment-step-card-desc">
-                  In-depth 30-minute 1-on-1 consultation with Dr. Niharika Bezboruah (BHMS) in-clinic or online.
+                  In-depth 30-minute 1-on-1 consultation with Dr. Niharika Bezboruah (BHMS) in-person or online.
                 </p>
               </div>
               <div className="treatment-step-card-img-wrapper">
@@ -330,7 +330,7 @@ export default function HomePage() {
               </div>
             </div>
             <h2 className="section-title">Patient Testimonials</h2>
-            <p className="section-desc">Real stories and verified experiences from patients treated at Cureo Clinic.</p>
+            <p className="section-desc">Real stories and verified experiences from patients treated at Cureo Personalised Homeopathic Care.</p>
           </FadeUp>
 
           <StaggerContainer className="testimonials-grid">
@@ -404,7 +404,7 @@ export default function HomePage() {
               </div>
 
               <blockquote className="testimonial-quote">
-                "Remarkable recovery for chronic anorectal discomfort. Dr. Bezboruah took time to understand my entire medical history. The clinic environment is warm and very professional."
+                "Remarkable recovery for chronic anorectal discomfort. Dr. Bezboruah took time to understand my entire medical history. The atmosphere is warm and very professional."
               </blockquote>
 
               <div className="testimonial-footer">
@@ -532,18 +532,18 @@ export default function HomePage() {
         <div className="gallery-container">
           <FadeUp className="section-header">
             <h2 className="section-title">Gallery</h2>
-            <p className="section-desc">A glimpse into Cureo Homeopathy Clinic and patient care environment.</p>
+            <p className="section-desc">A glimpse into Cureo Personalised Homeopathic Care environment.</p>
           </FadeUp>
 
           <StaggerContainer className="gallery-grid">
             <StaggerItem className="gallery-item">
-              <img src={gallery1} alt="Cureo Clinic Showcase 1" className="gallery-img" />
+              <img src={gallery1} alt="Cureo Showcase 1" className="gallery-img" />
             </StaggerItem>
             <StaggerItem className="gallery-item">
-              <img src={gallery2} alt="Cureo Clinic Showcase 2" className="gallery-img" />
+              <img src={gallery2} alt="Cureo Showcase 2" className="gallery-img" />
             </StaggerItem>
             <StaggerItem className="gallery-item">
-              <img src={gallery3} alt="Cureo Clinic Showcase 3" className="gallery-img" />
+              <img src={gallery3} alt="Cureo Showcase 3" className="gallery-img" />
             </StaggerItem>
           </StaggerContainer>
         </div>
@@ -552,7 +552,7 @@ export default function HomePage() {
       {/* Embedded Google Maps Section */}
       <section className="section" style={{ paddingTop: '1rem', marginBottom: '3.5rem' }}>
         <FadeUp className="section-header">
-          <h2 className="section-title">Clinic Location</h2>
+          <h2 className="section-title">Location & Directions</h2>
           <p className="section-desc">Visit Cureo Personalised Homeopathic Care in Dibrugarh, Assam.</p>
         </FadeUp>
 
@@ -560,15 +560,15 @@ export default function HomePage() {
           <div className="clinic-map-header">
             <div className="clinic-map-title-box">
               <h3><FaLocationDot style={{ color: '#86efac' }} /> Cureo Personalised Homeopathic Care</h3>
-              <p>Lab collection centre, near Dr Lal path, opposite Honda dealer, Naliapool, Dibrugarh, Assam 786001</p>
+              <p>Naliapool, near Dr Lal path, opposite Honda dealer, Dibrugarh, Assam 786001</p>
             </div>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-directions-map">
-              Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
+              View on Google Maps <FaArrowUpRightFromSquare size={11} />
             </a>
           </div>
           <div className="clinic-map-frame-wrapper">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.528511227843!2d94.9237945!3d27.4839343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3740992dc75e4b9f%3A0x86f74470d0b8ca74!2sCureo%20Personalised%20Homeopathic%20Care!5e0!3m2!1sen!2sin!4v1787557924980!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=27.483474,94.924416&hl=en&z=17&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

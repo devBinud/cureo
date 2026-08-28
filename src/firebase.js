@@ -41,7 +41,7 @@ export async function saveAppointmentToFirebase(appointmentData) {
       gender: appointmentData.gender || 'Not Specified',
       location: appointmentData.location || 'N/A',
       concern: appointmentData.concern || 'General Consultation',
-      mode: appointmentData.mode || 'In-Clinic Consultation',
+      mode: appointmentData.mode || 'In-Person Consultation',
       preferredDate: appointmentData.preferredDate || 'Earliest Available',
       timeSlot: appointmentData.timeSlot || 'Morning',
       notes: appointmentData.notes || '',

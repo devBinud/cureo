@@ -5,13 +5,13 @@ import { FadeUp, StaggerContainer, StaggerItem } from '../components/Animated'
 export default function ContactPage() {
   const whatsappNumber = "917002974378";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Dr. Niharika Bezboruah, I would like to enquire about consultation.")}`;
-  const googleMapsUrl = "https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z";
+  const googleMapsUrl = "https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z/data=!3m1!4b1!4m6!3m5!1s0x3740992dc75e4b9f:0x86f74470d0b8ca74!8m2!3d27.4839343!4d94.9237945!16s%2Fg%2F11y1ypst5k";
 
   return (
     <div className="section" style={{ marginTop: '2.5rem' }}>
       <FadeUp className="section-header">
         <span className="section-tag">Get In Touch</span>
-        <h2 className="section-title">Contact & Clinic Location</h2>
+        <h2 className="section-title">Contact & Location</h2>
         <p className="section-desc">Consultation details, interactive Google Map, and appointment instructions for Dr. Niharika Bezboruah.</p>
       </FadeUp>
 
@@ -20,11 +20,11 @@ export default function ContactPage() {
           <div className="specialty-icon-box">
             <FaLocationDot />
           </div>
-          <h3>Clinic Address</h3>
+          <h3>Location & Address</h3>
           <p style={{ lineHeight: 1.7, fontSize: '0.9rem' }}>
             <strong style={{ color: 'var(--primary-dark)', fontSize: '0.98rem' }}>Cureo Personalised Homeopathic Care</strong><br />
-            Lab collection centre, near Dr Lal path,<br />
-            opposite Honda dealer, Naliapool,<br />
+            Naliapool, near Dr Lal path,<br />
+            opposite Honda dealer,<br />
             Dibrugarh, Assam 786001<br />
             <span style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px', display: 'inline-block' }}>Plus Code: FWMF+HG Dibrugarh</span>
           </p>
@@ -41,7 +41,7 @@ export default function ContactPage() {
           </div>
           <h3>Book Consultation Slot</h3>
           <p style={{ lineHeight: 1.8 }}>
-            Schedule your in-clinic consultation at Dibrugarh with Dr. Niharika Bezboruah (BHMS) using our online portal or WhatsApp support line (+91 70029 74378).
+            Schedule your in-person consultation at Dibrugarh with Dr. Niharika Bezboruah (BHMS) using our online portal or WhatsApp support line (+91 70029 74378).
           </p>
           <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <Link to="/appointment" className="btn-hero-primary" style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}>
@@ -56,15 +56,15 @@ export default function ContactPage() {
         <div className="clinic-map-header">
           <div className="clinic-map-title-box">
             <h3><FaLocationDot style={{ color: '#86efac' }} /> Cureo Personalised Homeopathic Care</h3>
-            <p>Lab collection centre, near Dr Lal path, opposite Honda dealer, Naliapool, Dibrugarh, Assam 786001</p>
+            <p>Naliapool, near Dr Lal path, opposite Honda dealer, Dibrugarh, Assam 786001</p>
           </div>
           <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-directions-map">
-            Get Directions on Google Maps <FaArrowUpRightFromSquare size={11} />
+            View on Google Maps <FaArrowUpRightFromSquare size={11} />
           </a>
         </div>
         <div className="clinic-map-frame-wrapper">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.528511227843!2d94.9237945!3d27.4839343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3740992dc75e4b9f%3A0x86f74470d0b8ca74!2sCureo%20Personalised%20Homeopathic%20Care!5e0!3m2!1sen!2sin!4v1787557924980!5m2!1sen!2sin"
+            src="https://maps.google.com/maps?q=27.483474,94.924416&hl=en&z=17&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}

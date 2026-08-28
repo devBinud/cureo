@@ -55,7 +55,7 @@ export default function Navbar() {
               <span>+91 70029 74378</span>
             </a>
             <span className="topbar-tagline desktop-only-tagline">Dr. Niharika Bezboruah (BHMS)</span>
-            <span className="topbar-tagline desktop-only-tagline">Cureo Clinic</span>
+            <span className="topbar-tagline desktop-only-tagline">Personalised Homeopathic Care</span>
           </div>
 
           {/* Social Media Links with Full-Height Dashed Separators */}
@@ -94,7 +94,7 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to="/specialties" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
-                specialities
+                Specialties
               </NavLink>
             </li>
             <li>
@@ -162,7 +162,7 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to="/specialties" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
-                Clinical Specialties
+                Specialties
               </NavLink>
             </li>
             <li>
@@ -172,7 +172,7 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to="/gallery" className={({ isActive }) => (isActive ? "drawer-nav-link active" : "drawer-nav-link")} onClick={() => setMobileMenuOpen(false)}>
-                Clinic Gallery
+                Gallery
               </NavLink>
             </li>
           </ul>

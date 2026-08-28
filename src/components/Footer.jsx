@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="cureo-footer">
       <div className="footer-content">
         <div className="footer-brand">
-          <h3>Cureo Homeopathy Clinic</h3>
+          <h3>Cureo - Personalised Homeopathic Care</h3>
           <p>Dr. Niharika Bezboruah (BHMS)</p>
           <p style={{ fontSize: '0.85rem', color: '#BDB9A2' }}>
             Dedicated to root-cause healing and individualized homeopathic consultation.
@@ -49,9 +49,9 @@ export default function Footer() {
           <ul style={{ padding: 0, margin: 0 }}>
             <li><Link to="/" style={{ color: '#DDE1DD' }}>Home</Link></li>
             <li><Link to="/about" style={{ color: '#DDE1DD' }}>About Cureo</Link></li>
-            <li><Link to="/specialties" style={{ color: '#DDE1DD' }}>Clinical Specialties</Link></li>
+            <li><Link to="/specialties" style={{ color: '#DDE1DD' }}>Specialties</Link></li>
             <li><Link to="/appointment" style={{ color: '#DDE1DD' }}>Online Appointment</Link></li>
-            <li><Link to="/gallery" style={{ color: '#DDE1DD' }}>Clinic Gallery</Link></li>
+            <li><Link to="/gallery" style={{ color: '#DDE1DD' }}>Gallery</Link></li>
           </ul>
         </div>
 
@@ -64,13 +64,13 @@ export default function Footer() {
                 Cureo Personalised Homeopathic Care
               </strong>
               <p style={{ margin: 0, color: '#d1d5db', lineHeight: '1.5' }}>
-                Lab collection centre, near Dr Lal path,<br />
-                opposite Honda dealer, Naliapool,<br />
+                Naliapool, near Dr Lal path,<br />
+                opposite Honda dealer,<br />
                 Dibrugarh, Assam 786001
               </p>
               <div style={{ marginTop: '0.4rem' }}>
                 <a
-                  href="https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z"
+                  href="https://www.google.com/maps/place/Cureo+Personalised+Homeopathic+Care/@27.4839343,94.9237945,17z/data=!3m1!4b1!4m6!3m5!1s0x3740992dc75e4b9f:0x86f74470d0b8ca74!8m2!3d27.4839343!4d94.9237945!16s%2Fg%2F11y1ypst5k"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: '#86efac', fontSize: '0.8rem', textDecoration: 'underline', fontWeight: 600 }}

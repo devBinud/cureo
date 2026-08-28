@@ -59,7 +59,7 @@ export function addAppointment(newAppData) {
     gender: newAppData.gender || 'Not Specified',
     location: newAppData.location || 'N/A',
     concern: newAppData.concern || 'General Consultation',
-    mode: newAppData.mode || 'In-Clinic Consultation',
+    mode: newAppData.mode || 'In-Person Consultation',
     preferredDate: newAppData.preferredDate || 'Earliest Available',
     timeSlot: newAppData.timeSlot || 'Morning',
     notes: newAppData.notes || '',

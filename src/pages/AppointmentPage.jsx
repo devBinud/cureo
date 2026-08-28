@@ -28,7 +28,7 @@ export default function AppointmentPage() {
     gender: 'Female',
     location: 'Dibrugarh',
     concern: 'Skin Concerns',
-    mode: 'In-Clinic Consultation',
+    mode: 'In-Person Consultation',
     preferredDate: '',
     timeSlot: '3:00 PM - 4:00 PM',
     notes: ''
@@ -71,7 +71,7 @@ export default function AppointmentPage() {
         const day = parseInt(parts[2], 10);
         const selectedDate = new Date(year, month, day);
         if (selectedDate.getDay() === 6) { // 6 = Saturday (OFF)
-          setDateError('Saturdays are clinic holidays. Clinic hours are 3:00 PM – 7:00 PM (Sunday to Friday).');
+          setDateError('Saturdays are closed. Consultation hours are 3:00 PM – 7:00 PM (Sunday to Friday).');
           setFormData((prev) => ({ ...prev, preferredDate: '' }));
           return;
         }
@@ -137,7 +137,7 @@ export default function AppointmentPage() {
       gender: 'Female',
       location: 'Dibrugarh',
       concern: 'Skin Concerns',
-      mode: 'In-Clinic Consultation',
+      mode: 'In-Person Consultation',
       preferredDate: '',
       timeSlot: '3:00 PM - 4:00 PM',
       notes: ''
@@ -210,7 +210,7 @@ export default function AppointmentPage() {
             <>
               <div className="appointment-amber-banner">
                 <span>
-                  <strong>Clinic Hours: 3:00 PM – 7:00 PM (Sunday to Friday, Saturday OFF)</strong>
+                  <strong>Consultation Hours: 3:00 PM – 7:00 PM (Sunday to Friday, Saturday OFF)</strong>
                 </span>
               </div>
 
@@ -353,7 +353,7 @@ export default function AppointmentPage() {
                       onChange={handleChange}
                       required
                     >
-                      <option value="In-Clinic Consultation">In-Clinic Consultation</option>
+                      <option value="In-Person Consultation">In-Person Consultation</option>
                       <option value="Online Consultation">Online Consultation</option>
                     </select>
                   </div>
